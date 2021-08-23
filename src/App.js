@@ -1,4 +1,5 @@
 import "./App.css";
+import Comics from "./components/Comics";
 
 export default function App() {
 
@@ -14,7 +15,7 @@ export default function App() {
         <div className="Grid-item Main Main-column-2">MainColumn2</div>
         <div className="Grid-item Main Main-column-3">MainColumn3</div>
         <div className="Grid-item Main Main-column-4">MainColumn4</div>
-        <div className="Grid-item Main-comic">MainComic</div>
+        <div className="Grid-item Main-comic"><Comics /></div>
         <div className="Grid-item Main-bottom">MainBottom</div>
         <div className="Grid-item Footer">Footer</div>
       </div>
