@@ -19,6 +19,6 @@ export default function Comics() {
 
 
     return (
-        <img src={url} alt="garfield-comics"></img>
+        <img src={url} alt="garfield-comics" width="100%"></img>
         );
 }
