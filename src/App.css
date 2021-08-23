@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&display=swap");
+
+@font-face {
+  font-family: "Chomsky";
+  src: url("./resources/fonts/Chomsky.otf") format("otf"),
+    url("./resources/fonts/Chomsky.woff") format("woff");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  margin: 0;
+  font-family: "EB Garamond", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Chomsky", sans-serif;
+  margin: 0;
+}
+
+/* p {
+  font-size: 1rem;
+} */
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  font-size: 0.8rem;
+}
+
+.Grid-item {
+  background-color: lightblue;
+  height: 100%;
+  width: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  border: 1px solid #bbb;
 }
 
-.App-link {
-  color: #61dafb;
+.Header-weather {
+  grid-area: headerWeather;
+}
+.Header-logo {
+  grid-area: headerLogo;
+}
+.Header-quote {
+  grid-area: headerQuote;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Header-date {
+  grid-area: headerDate;
+}
+
+.Header-nameday {
+  grid-area: headerNameday;
+}
+
+.Main-column-1 {
+  grid-area: mainColumn1;
+}
+.Main-column-2 {
+  grid-area: mainColumn2;
+}
+.Main-column-3 {
+  grid-area: mainColumn3;
+  background-color: aquamarine;
+}
+.Main-column-4 {
+  grid-area: mainColumn4;
+}
+.Main-comic {
+  grid-area: mainComic;
+}
+
+.Main-bottom {
+  grid-area: mainBottom;
+}
+
+.Footer {
+  grid-area: footer;
+}
+
+.Container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr;
+  grid-template-rows: 3fr 1fr 12fr 4fr 1fr;
+  grid-template-areas:
+    "headerWeather headerWeather headerLogo headerLogo headerQuote headerQuote"
+    "headerDate headerDate headerNameday headerNameday headerNameday headerNameday"
+    "mainColumn1 mainColumn2 mainColumn3 mainColumn3 mainColumn3 mainColumn4"
+    "mainComic mainComic mainBottom mainBottom mainBottom mainBottom"
+    "footer footer footer footer footer footer";
 }
