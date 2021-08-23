@@ -6,6 +6,18 @@
     url("./resources/fonts/Chomsky.woff") format("woff");
 }
 
+@font-face {
+  font-family: "NYTCheltenham-Book";
+  src: url("./resources/fonts/NYTCheltenham-Book.woff") format("woff"),
+    url("./resources/fonts/NYTCheltenham-Book.woff2") format("woff");
+}
+@font-face {
+  font-family: "NYTCheltenham-Book";
+  src: url("./resources/fonts/NYTCheltenham-BookItalic.woff") format("woff"),
+    url("./resources/fonts/NYTCheltenham-BookItalic.woff2") format("woff");
+  font-style: italic, oblique;
+}
+
 html,
 body {
   box-sizing: border-box;
@@ -26,21 +38,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-p,
-a,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Chomsky", sans-serif;
+  font-family: "NYTCheltenham-Book", serif;
   margin: 0;
 }
 
-/* p {
-  font-size: 1rem;
-} */
+.logo {
+  font-family: "Chomsky", serif;
+  font-size: 3rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h6 {
+  color: red;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -49,68 +68,78 @@ code {
 }
 
 .Grid-item {
-  background-color: lightblue;
+  /* background-color: lightblue; */
+  padding: 8px;
   height: 100%;
   width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #bbb;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .Header-weather {
-  grid-area: headerWeather;
+  grid-area: wea;
 }
 .Header-logo {
-  grid-area: headerLogo;
+  grid-area: log;
 }
 .Header-quote {
-  grid-area: headerQuote;
+  grid-area: quo;
 }
 
-.Header-date {
-  grid-area: headerDate;
+.Header-column-1 {
+  grid-area: he1;
 }
 
-.Header-nameday {
-  grid-area: headerNameday;
+.Header-column-2 {
+  grid-area: he2;
+}
+
+.Header-column-3 {
+  grid-area: he3;
+}
+
+.Main {
+  align-items: flex-start;
+  padding-top: 20px;
 }
 
 .Main-column-1 {
-  grid-area: mainColumn1;
+  grid-area: co1;
 }
 .Main-column-2 {
-  grid-area: mainColumn2;
+  grid-area: co2;
 }
 .Main-column-3 {
-  grid-area: mainColumn3;
-  background-color: aquamarine;
+  grid-area: co3;
 }
 .Main-column-4 {
-  grid-area: mainColumn4;
+  grid-area: co4;
 }
 .Main-comic {
-  grid-area: mainComic;
+  grid-area: com;
 }
 
 .Main-bottom {
-  grid-area: mainBottom;
+  grid-area: bot;
 }
 
 .Footer {
-  grid-area: footer;
+  grid-area: foo;
 }
 
 .Container {
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
   height: 100vh;
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 3fr 1fr 12fr 4fr 1fr;
   grid-template-areas:
-    "headerWeather headerWeather headerLogo headerLogo headerQuote headerQuote"
-    "headerDate headerDate headerNameday headerNameday headerNameday headerNameday"
-    "mainColumn1 mainColumn2 mainColumn3 mainColumn3 mainColumn3 mainColumn4"
-    "mainComic mainComic mainBottom mainBottom mainBottom mainBottom"
-    "footer footer footer footer footer footer";
+    "wea wea wea log log log log log log quo quo quo"
+    "he1 he1 he1 he1 he2 he2 he2 he2 he3 he3 he3 he3"
+    "co1 co1 co2 co2 co3 co3 co3 co3 co3 co3 co4 co4"
+    "com com com com bot bot bot bot bot bot bot bot"
+    "foo foo foo foo foo foo foo foo foo foo foo foo";
 }
