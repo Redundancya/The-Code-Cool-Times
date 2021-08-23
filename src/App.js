@@ -1,21 +1,13 @@
 import "./App.css";
+import News from "./components/News";
+import React, { useState, useEffect } from "react";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Removed some of the junk files.</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <React.Fragment>
+        <News />
+      </React.Fragment>
     </div>
   );
 }
-
-export default App;
