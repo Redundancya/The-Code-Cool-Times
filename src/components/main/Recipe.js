@@ -17,7 +17,7 @@ export default function Recipe() {
     const getRecipeWithShortDescription = useCallback(() => {
             axios.get(recipeUrl)
             .then(response => { 
-                if(response.data.meals[0].strInstructions.length > 600){
+                if(response.data.meals[0].strInstructions.length > 500){
                     getRecipeWithShortDescription();
                 } else {
                     setRecipe(response.data.meals[0]);
@@ -31,7 +31,7 @@ export default function Recipe() {
         }, [getRecipeWithShortDescription])
 
     const getMaxNumOfIngredients = () => {
-        const maxNumber = 4;
+        const maxNumber = 3;
         let ingredients = Object.keys(recipe)
             .filter(item => item.toString().startsWith("strIngredient"))
             .filter(key => recipe[key] !== "")
