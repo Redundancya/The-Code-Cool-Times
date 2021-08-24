@@ -14,6 +14,11 @@ const options = {
 const today = new Date();
 
 export default function Container() {
+  const context = useContext(NewsContext);
+
+  const changeNewsTheme = (newTheme) => {
+    context.setNewsTheme(newTheme);
+  };
   return (
     <div className="Container">
       <div className="Grid-item Header-top Header-weather">HeaderWeather</div>
@@ -26,10 +31,10 @@ export default function Container() {
       </div>
       <div className="Grid-item Header Header-column-2">
         <ButtonGroup color="primary" aria-label="outlined primary button group">
-          <Button>World</Button>
-          <Button>Politics</Button>
-          <Button>Business</Button>
-          <Button>Tech</Button>
+          <Button onClick={() => changeNewsTheme("world")}>World</Button>
+          <Button onClick={() => changeNewsTheme("politics")}>Politics</Button>
+          <Button onClick={() => changeNewsTheme("business")}>Business</Button>
+          <Button onClick={() => changeNewsTheme("tech")}>Tech</Button>
         </ButtonGroup>
       </div>
       <div className="Grid-item Header Header-column-3">Extra column?</div>

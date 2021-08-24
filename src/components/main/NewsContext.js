@@ -21,23 +21,17 @@ export const NewsProvider = (props) => {
       });
   };
 
-  const [movies, setMovies] = useState([
-    {
-      name: "Harry Potter",
-      price: "10",
-      id: 2314,
-    },
-    {
-      name: "Game of Thrones",
-      price: "10",
-      id: 2333,
-    },
-  ]);
-
   const [articles, setArticles] = useState(() => getTopNews());
 
   return (
-    <NewsContext.Provider value={{ articles: articles, loading: loading }}>
+    <NewsContext.Provider
+      value={{
+        articles: articles,
+        loading: loading,
+        setNewsTheme: setNewsTheme,
+        newsTheme: newsTheme,
+      }}
+    >
       {props.children}
     </NewsContext.Provider>
   );
