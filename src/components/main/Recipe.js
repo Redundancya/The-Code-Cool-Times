@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, setState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { Button } from '@material-ui/core';
 
@@ -7,11 +7,10 @@ export default function Recipe() {
     const recipeUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
     
     const [recipe, setRecipe] = useState([]);
-    const [state, setState] = useState('start')
+    const [state, setState] = useState('front')
 
     const changeState = () => {
-        setState(state === 'start' ? 'description' : 'start');
-        console.log(state)
+        setState(state === 'front' ? 'back' : 'front');
       }
 
     const getRecipeWithShortDescription = useCallback(() => {
@@ -41,27 +40,28 @@ export default function Recipe() {
     }
 
     const recipeFront = (
-        <div width="100%" alignitems="center">
+        <div>
             <h4>Today's meal:</h4> 
             <h3>{recipe.strMeal}</h3>
             <p>
                 <img src={recipe.strMealThumb} alt={recipe.strMeal} 
-                width="150px" height="auto"></img>
+                width="60%"></img>
             </p>
             <ul>
             {getMaxNumOfIngredients().map(ingredient =>
-                <li>{ingredient}</li>)}
+                <li key={ingredient}>{ingredient}</li>)}
             </ul>
             <Button aria-label="outlined primary button group" onClick={() => changeState()}>See recipe</Button>
         </div>)
 
     const recipeBack = (
-        <div width="100%" alignitems="center">
-            <h4>{recipe.strMeal} step by step description:</h4> 
-            <p width="100%">{recipe.strInstructions}</p>
+        <div>
+            <h4>{recipe.strMeal} step by step:</h4> 
+            <p>{recipe.strInstructions}</p>
             <Button aria-label="outlined primary button group" onClick={() => changeState()}>Back</Button>
         </div>)
 
-        return (state === 'start' ? recipeFront : recipeBack);
+
+    return (state === 'front' ? recipeFront : recipeBack);
 
 }
