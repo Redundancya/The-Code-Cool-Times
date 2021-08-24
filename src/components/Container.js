@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, ButtonGroup } from "@material-ui/core";
-import MainColumn1 from "./main/MainColumn1";
-import MainColumn2 from "./main/MainColumn2";
+import NewsColumn1 from "./main/NewsColumn1";
+import NewsColumn2 from "./main/NewsColumn2";
 import Comics from "./main/Comics";
-import News from "./main/News";
+import MainNews from "./main/MainNews";
+import { NewsContext } from "./main/NewsContext";
 
 const options = {
   weekday: "long",
@@ -14,6 +15,8 @@ const options = {
 const today = new Date();
 
 export default function Container() {
+  const [news, setNews] = useContext(NewsContext);
+
   return (
     <div className="Container">
       <div className="Grid-item Header-top Header-weather">HeaderWeather</div>
@@ -34,14 +37,14 @@ export default function Container() {
       </div>
       <div className="Grid-item Header Header-column-3">Extra column?</div>
       <div className="Grid-item Main Main-column-1">
-        <MainColumn1></MainColumn1>
+        <NewsColumn1></NewsColumn1>
       </div>
       <div className="Grid-item Main Main-column-2">
-        <MainColumn2></MainColumn2>
+        <NewsColumn2></NewsColumn2>
       </div>
       <div className="Grid-item Main Main-column-3">
         <React.Fragment>
-          <News />
+          <MainNews />
         </React.Fragment>
       </div>
       <div className="Grid-item Main Main-column-4">MainColumn4</div>
