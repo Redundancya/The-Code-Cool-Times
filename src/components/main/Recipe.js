@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { Button } from '@material-ui/core';
 
@@ -8,12 +8,22 @@ export default function Recipe() {
     
     const [recipe, setRecipe] = useState([]);
 
-    useEffect(()=>{
-        axios.get(recipeUrl)
-            .then(response => {
-                setRecipe(response.data.meals[0]);
+    const getRecipeWithShortDescription = useCallback(() => {
+            axios.get(recipeUrl)
+            .then(response => { 
+                if(response.data.meals[0].strInstructions.length > 600){
+                    getRecipeWithShortDescription();
+                } else {
+                    setRecipe(response.data.meals[0]);
+                }
             })
-        }, [])
+        },[],
+    )
+
+    useEffect(()=>{
+        getRecipeWithShortDescription();
+        }, [getRecipeWithShortDescription])
+
 
 
     return (
