@@ -69,13 +69,17 @@ code {
 
 .Grid-item {
   /* background-color: lightblue; */
-  padding: 8px;
+  padding: 2px 8px;
   height: 100%;
   width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.Header {
+  border-top: 1px solid #ebebeb;
+  border-bottom: 4px double #000;
 }
 
 .Header-weather {
@@ -102,7 +106,8 @@ code {
 
 .Main {
   align-items: flex-start;
-  padding-top: 20px;
+  margin: 20px 0;
+  padding: 0 10px;
 }
 
 .Main-column-1 {
@@ -113,6 +118,8 @@ code {
 }
 .Main-column-3 {
   grid-area: co3;
+  border-left: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
 }
 .Main-column-4 {
   grid-area: co4;
@@ -134,12 +141,13 @@ code {
   margin: 0 auto;
   height: 100vh;
   display: grid;
+  row-gap: 3%;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 3fr 1fr 12fr 4fr 1fr;
   grid-template-areas:
     "wea wea wea log log log log log log quo quo quo"
     "he1 he1 he1 he1 he2 he2 he2 he2 he3 he3 he3 he3"
     "co1 co1 co2 co2 co3 co3 co3 co3 co3 co3 co4 co4"
-    "com com com com bot bot bot bot bot bot bot bot"
+    "com com com com co3 co3 co3 co3 co3 co3 bot bot"
     "foo foo foo foo foo foo foo foo foo foo foo foo";
 }
