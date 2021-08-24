@@ -28,103 +28,46 @@ export const News = () => {
     } else {
       setArticlesIndex(articlesIndex - 1);
     }
-    console.log(articlesIndex);
   };
 
-  if (articlesIndex === 0) {
-    return (
-      <div>
-        <img
-          className="mainPicture"
-          src={articles[articlesIndex].urlToImage}
-          alt={articles[articlesIndex]?.source?.name ?? "Loading..."}
-        />
-        <a href={articles[articlesIndex]?.url ?? "Loading..."}>
-          <h3>{articles[articlesIndex]?.title ?? "Title loading..."}</h3>
-        </a>
-        <p>{articles[articlesIndex]?.description ?? "Content loading..."}</p>
+  return (
+    <div>
+      <img
+        className="mainPicture"
+        src={articles[articlesIndex].urlToImage}
+        alt={articles[articlesIndex]?.source?.name ?? "Loading..."}
+      />
+      <a href={articles[articlesIndex]?.url ?? "Loading..."}>
+        <h3>{articles[articlesIndex]?.title ?? "Title loading..."}</h3>
+      </a>
+      <p>{articles[articlesIndex]?.description ?? "Content loading..."}</p>
 
-        <ButtonGroup size="small" aria-label="primary button group">
-          <Button
-            onClick={() => changeNews("next")}
-            size="small"
-            style={{
-              fontSize: "10px",
-              fontFamily: "EB Garamond, sans-serif",
-            }}
-          >
-            Next
-          </Button>
-        </ButtonGroup>
-      </div>
-    );
-  } else if (articlesIndex === 19) {
-    return (
-      <div>
-        <img
-          className="mainPicture"
-          src={articles[articlesIndex].urlToImage}
-          alt={articles[articlesIndex]?.source?.name ?? "Loading..."}
-        />
-        <a href={articles[articlesIndex]?.url ?? "Loading..."}>
-          <h3>{articles[articlesIndex]?.title ?? "Title loading..."}</h3>
-        </a>
-        <p>{articles[articlesIndex]?.description ?? "Content loading..."}</p>
-
-        <ButtonGroup size="small" aria-label="primary button group">
-          <Button
-            onClick={() => changeNews("previous")}
-            size="small"
-            style={{
-              fontSize: "10px",
-              fontFamily: "EB Garamond, sans-serif",
-            }}
-            fontSize="8px"
-          >
-            Previous
-          </Button>
-        </ButtonGroup>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <img
-          className="mainPicture"
-          src={articles[articlesIndex].urlToImage}
-          alt={articles[articlesIndex]?.source?.name ?? "Loading..."}
-        />
-        <a href={articles[articlesIndex]?.url ?? "Loading..."}>
-          <h3>{articles[articlesIndex]?.title ?? "Title loading..."}</h3>
-        </a>
-        <p>{articles[articlesIndex]?.description ?? "Content loading..."}</p>
-
-        <ButtonGroup size="small" aria-label="primary button group">
-          <Button
-            onClick={() => changeNews("previous")}
-            size="small"
-            style={{
-              fontSize: "10px",
-              fontFamily: "EB Garamond, sans-serif",
-            }}
-          >
-            Previous
-          </Button>
-          <Button
-            onClick={() => changeNews("next")}
-            size="small"
-            style={{
-              fontSize: "10px",
-              fontFamily: "EB Garamond, sans-serif",
-            }}
-            fontSize="8px"
-          >
-            Next
-          </Button>
-        </ButtonGroup>
-      </div>
-    );
-  }
+      <ButtonGroup size="small" aria-label="primary button group">
+        <Button
+          disabled={articlesIndex === 0 ? true : false}
+          onClick={() => changeNews("previous")}
+          size="small"
+          style={{
+            fontSize: "10px",
+            fontFamily: "EB Garamond, sans-serif",
+          }}
+        >
+          Previous
+        </Button>
+        <Button
+          disabled={articlesIndex === 19 ? true : false}
+          onClick={() => changeNews("next")}
+          size="small"
+          style={{
+            fontSize: "10px",
+            fontFamily: "EB Garamond, sans-serif",
+          }}
+        >
+          Next
+        </Button>
+      </ButtonGroup>
+    </div>
+  );
 };
 
 export default News;
