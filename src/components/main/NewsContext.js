@@ -6,6 +6,8 @@ export const NewsContext = createContext();
 export const NewsProvider = (props) => {
   const [newsTheme, setNewsTheme] = useState("everything");
 
+  const [loading, setLoading] = useState(true);
+
   const getTopNews = () => {
     axios
       .get(
@@ -14,7 +16,8 @@ export const NewsProvider = (props) => {
           "&apiKey=803b1f20229542109d3b21b58d162064"
       )
       .then((response) => {
-        return response.data.articles;
+        setArticles(response.data.articles);
+        setLoading(false);
       });
   };
 
@@ -31,12 +34,10 @@ export const NewsProvider = (props) => {
     },
   ]);
 
-  const [news, setNews] = useState(() => {
-    getTopNews();
-  });
+  const [articles, setArticles] = useState(() => getTopNews());
 
   return (
-    <NewsContext.Provider value={[movies, setMovies]}>
+    <NewsContext.Provider value={{ articles: articles, loading: loading }}>
       {props.children}
     </NewsContext.Provider>
   );

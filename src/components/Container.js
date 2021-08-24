@@ -15,8 +15,6 @@ const options = {
 const today = new Date();
 
 export default function Container() {
-  const [news, setNews] = useContext(NewsContext);
-
   return (
     <div className="Container">
       <div className="Grid-item Header-top Header-weather">HeaderWeather</div>

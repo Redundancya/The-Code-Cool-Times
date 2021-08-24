@@ -5,64 +5,66 @@ import placeholder from "../../resources/images/placeholder.png";
 import { NewsContext } from "./NewsContext";
 
 export const MainNews = (props) => {
-  const [articles, setArticles] = useContext(NewsContext);
-  const [articleIndex, setArticleIndex] = useState(0);
-
-  let newsIndex;
+  const context = useContext(NewsContext);
+  const [articlesIndex, setArticlesIndex] = useState(0);
 
   const changeNews = (incrementer) => {
     if (incrementer === "next") {
-      setArticleIndex((articleIndex + 1) % 19);
+      setArticlesIndex((articlesIndex + 1) % 19);
     } else {
-      setArticleIndex((articleIndex + 18) % 19);
+      setArticlesIndex((articlesIndex + 18) % 19);
     }
   };
 
+  if (context.loading) {
+    return <div>loading....</div>;
+  }
+
   return (
     <div>
-      {console.log(articles)}
-      {articles.map((oneNews) => (
-        <p>{oneNews.name}</p>
-      ))}
+      {console.log(context.articesl)}
+
+      <img
+        className="mainPicture"
+        src={context.articles[articlesIndex]?.urlToImage ?? "sajt"}
+        alt={context.articles[articlesIndex]?.source?.name ?? "Loading..."}
+      />
+      <a
+        className="link"
+        href={context.articles[articlesIndex]?.url ?? "Loading..."}
+      >
+        <h3>{context.articles[articlesIndex]?.title ?? "Title loading..."}</h3>
+      </a>
+      <p>
+        {context.articles[articlesIndex]?.description ?? "Content loading..."}
+      </p>
+
+      <ButtonGroup size="small" aria-label="primary button group">
+        <Button
+          disabled={articlesIndex === 0 ? true : false}
+          onClick={() => changeNews("previous")}
+          size="small"
+          style={{
+            fontSize: "10px",
+            fontFamily: "EB Garamond, sans-serif",
+          }}
+        >
+          Previous
+        </Button>
+        <Button
+          disabled={articlesIndex === 19 ? true : false}
+          onClick={() => changeNews("next")}
+          size="small"
+          style={{
+            fontSize: "10px",
+            fontFamily: "EB Garamond, sans-serif",
+          }}
+        >
+          Next
+        </Button>
+      </ButtonGroup>
     </div>
   );
-  //   <div>
-  //   <img
-  //     className="mainPicture"
-  //     src={articles[articlesIndex].urlToImage}
-  //     alt={articles[articlesIndex]?.source?.name ?? "Loading..."}
-  //   />
-  //   <a className="link" href={articles[articlesIndex]?.url ?? "Loading..."}>
-  //     <h3>{articles[articlesIndex]?.title ?? "Title loading..."}</h3>
-  //   </a>
-  //   <p>{articles[articlesIndex]?.description ?? "Content loading..."}</p>
-
-  //   <ButtonGroup size="small" aria-label="primary button group">
-  //     <Button
-  //       disabled={articlesIndex === 0 ? true : false}
-  //       onClick={() => changeNews("previous")}
-  //       size="small"
-  //       style={{
-  //         fontSize: "10px",
-  //         fontFamily: "EB Garamond, sans-serif",
-  //       }}
-  //     >
-  //       Previous
-  //     </Button>
-  //     <Button
-  //       disabled={articlesIndex === 19 ? true : false}
-  //       onClick={() => changeNews("next")}
-  //       size="small"
-  //       style={{
-  //         fontSize: "10px",
-  //         fontFamily: "EB Garamond, sans-serif",
-  //       }}
-  //     >
-  //       Next
-  //     </Button>
-  //   </ButtonGroup>
-  // </div>
-  // );
 };
 
 export default MainNews;
