@@ -87,6 +87,10 @@ code {
   border-bottom: 4px double #000;
 }
 
+.Header-top {
+  margin-top: 8px;
+}
+
 .Header-weather {
   grid-area: wea;
 }
@@ -95,6 +99,19 @@ code {
 }
 .Header-quote {
   grid-area: quo;
+  display: flex;
+  justify-content: space-between;
+}
+
+.QuoteContainer {
+  width: 70%;
+  height: 100%;
+  border: 1px solid #ebebeb;
+  margin: 4px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Header-column-1 {

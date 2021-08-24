@@ -4,6 +4,8 @@ import MainColumn1 from './main/MainColumn1';
 import MainColumn2 from './main/MainColumn2';
 import Comics from "./main/Comics";
 import News from "./main/News";
+import Quotes from "./header/Quotes"
+import ThemeSwitch from "./header/ThemeSwitch"
 
 const options = {
   weekday: "long",
@@ -18,7 +20,10 @@ export default function Container() {
         <div className="Container">
             <div className="Grid-item Header-top Header-weather">HeaderWeather</div>
             <div className="Grid-item Header-top Header-logo logo">The Code Cool Times</div>
-            <div className="Grid-item Header-top Header-quote">HeaderQuote</div>
+            <div className="Grid-item Header-top Header-quote">
+                < Quotes />
+                < ThemeSwitch />
+            </div>
             <div className="Grid-item Header Header-column-1">
                 <h5>{today.toLocaleDateString("en-US", options)}</h5>
             </div>
