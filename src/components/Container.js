@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@material-ui/core';
 import MainColumn1 from './main/MainColumn1';
 import MainColumn2 from './main/MainColumn2';
+import Recipe from './main/Recipe';
 import Comics from "./main/Comics";
 import News from "./main/News";
 import Quotes from "./header/Quotes"
@@ -66,15 +67,14 @@ export default function Container() {
                 <MainColumn1 />
             </div>
             <div className="Grid-item Main Main-column-2">
+            <div className="Grid-item Main Main-column-4"><Recipe /></div>
+            <div className="Grid-item Main-comic"><Comics /></div>
                 <MainColumn2 /></div>
             <div className="Grid-item Main Main-column-3">
               <React.Fragment>
                  <News />
               </React.Fragment>
             </div>
-            <div className="Grid-item Main Main-column-4">MainColumn4</div>
-            <div className="Grid-item Main-comic">
-              <Comics /></div>
             <div className="Grid-item Main-bottom">MainBottom</div>
             <div className="Grid-item Footer">
                 <h5 style={{
