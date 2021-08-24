@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Button, ButtonGroup } from "@material-ui/core";
 import NewsColumn1 from "./main/NewsColumn1";
-import NewsColumn2 from "./main/NewsColumn2";
 import Comics from "./main/Comics";
 import MainNews from "./main/MainNews";
 import { NewsContext } from "./main/NewsContext";
@@ -38,7 +37,7 @@ export default function Container() {
         <NewsColumn1></NewsColumn1>
       </div>
       <div className="Grid-item Main Main-column-2">
-        <NewsColumn2></NewsColumn2>
+        <NewsColumn1></NewsColumn1>
       </div>
       <div className="Grid-item Main Main-column-3">
         <React.Fragment>

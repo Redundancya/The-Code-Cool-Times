@@ -17,13 +17,11 @@ export const MainNews = (props) => {
   };
 
   if (context.loading) {
-    return <div>loading....</div>;
+    return <div>Loading....</div>;
   }
 
   return (
     <div>
-      {console.log(context.articesl)}
-
       <img
         className="mainPicture"
         src={context.articles[articlesIndex]?.urlToImage ?? "sajt"}
