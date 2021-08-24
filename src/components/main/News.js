@@ -1,3 +1,4 @@
+import "../../App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -23,8 +24,10 @@ export const News = () => {
   return (
     <div>
       <img
+        className="mainPicture"
         src={articles[articlesIndex].urlToImage}
         alt={articles[articlesIndex]?.source?.name ?? "Loading..."}
+        resizeMode="repeat"
       />
       <a href={articles[articlesIndex]?.url ?? "Loading..."}>
         <h3>{articles[articlesIndex]?.title ?? "Title loading..."}</h3>
