@@ -3,6 +3,7 @@ import { Button, ButtonGroup } from '@material-ui/core';
 import MainColumn1 from './main/MainColumn1';
 import MainColumn2 from './main/MainColumn2';
 import Comics from './main/Comics';
+import News from './main/News';
 
 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 const today  = new Date();
@@ -30,7 +31,10 @@ export default function Container() {
             </div>
             <div className="Grid-item Main Main-column-2">
                 <MainColumn2></MainColumn2></div>
-            <div className="Grid-item Main Main-column-3">MainColumn3</div>
+            <div className="Grid-item Main Main-column-3">
+      <React.Fragment>
+        <News />
+      </React.Fragment></div>
             <div className="Grid-item Main Main-column-4">MainColumn4</div>
             <div className="Grid-item Main-comic"><Comics /></div>
             <div className="Grid-item Main-bottom">MainBottom</div>
