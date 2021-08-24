@@ -66,15 +66,14 @@ export default function Container() {
             <div className="Grid-item Main Main-column-1">
                 <MainColumn1 />
             </div>
-            <div className="Grid-item Main Main-column-2">
-            <div className="Grid-item Main Main-column-4"><Recipe /></div>
-            <div className="Grid-item Main-comic"><Comics /></div>
-                <MainColumn2 /></div>
+            <div className="Grid-item Main Main-column-2"><MainColumn2 /></div>
             <div className="Grid-item Main Main-column-3">
               <React.Fragment>
                  <News />
               </React.Fragment>
             </div>
+            <div className="Grid-item Main-comic"><Comics /></div>
+            <div className="Grid-item Main Main-column-4"><Recipe /></div>
             <div className="Grid-item Main-bottom">MainBottom</div>
             <div className="Grid-item Footer">
                 <h5 style={{

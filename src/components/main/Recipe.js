@@ -16,7 +16,7 @@ export default function Recipe() {
     const getRecipeWithShortDescription = useCallback(() => {
             axios.get(recipeUrl)
             .then(response => { 
-                if(response.data.meals[0].strInstructions.length > 550){
+                if(response.data.meals[0].strInstructions.length > 450){
                     getRecipeWithShortDescription();
                 } else {
                     setRecipe(response.data.meals[0]);
@@ -31,7 +31,7 @@ export default function Recipe() {
 
 
     const getMaxNumOfIngredients = () => {
-        const maxNumber = 4;
+        const maxNumber = 3;
         let ingredients = Object.keys(recipe)
             .filter(item => item.toString().startsWith("strIngredient"))
             .filter(key => recipe[key] !== "")
@@ -43,10 +43,10 @@ export default function Recipe() {
         <div>
             <h4>Today's meal:</h4> 
             <h3>{recipe.strMeal}</h3>
-            <p>
+            {/* <p> */}
                 <img src={recipe.strMealThumb} alt={recipe.strMeal} 
-                width="60%"></img>
-            </p>
+                width="50%"></img>
+            {/* </p> */}
             <ul>
             {getMaxNumOfIngredients().map(ingredient =>
                 <li key={ingredient}>{ingredient}</li>)}
