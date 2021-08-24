@@ -30,8 +30,8 @@ body {
 }
 
 .mainPicture {
-  height: 100%;
-  width: 100%;
+  height: 400px;
+  width: 800px;
 }
 
 body {
@@ -147,4 +147,17 @@ code {
     "co1 co1 co2 co2 co3 co3 co3 co3 co3 co3 co4 co4"
     "com com com com bot bot bot bot bot bot bot bot"
     "foo foo foo foo foo foo foo foo foo foo foo foo";
+}
+
+.link {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.link :hover {
+  text-decoration: underline;
+}
+
+.link :visited {
+  color: black;
 }

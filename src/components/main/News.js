@@ -37,7 +37,7 @@ export const News = () => {
         src={articles[articlesIndex].urlToImage}
         alt={articles[articlesIndex]?.source?.name ?? "Loading..."}
       />
-      <a href={articles[articlesIndex]?.url ?? "Loading..."}>
+      <a className="link" href={articles[articlesIndex]?.url ?? "Loading..."}>
         <h3>{articles[articlesIndex]?.title ?? "Title loading..."}</h3>
       </a>
       <p>{articles[articlesIndex]?.description ?? "Content loading..."}</p>
