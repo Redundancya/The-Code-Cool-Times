@@ -24,7 +24,14 @@ export default function Recipe() {
         getRecipeWithShortDescription();
         }, [getRecipeWithShortDescription])
 
-
+    const getMaxNumOfIngredients = () => {
+        const maxNumber = 4;
+        let ingredients = Object.keys(recipe)
+            .filter(item => item.toString().startsWith("strIngredient"))
+            .filter(key => recipe[key] !== "")
+            .map(key => recipe[key]);
+        return ingredients.slice(0, maxNumber);
+    }
 
     return (
         <div width="150px" alignitems="center">
@@ -35,11 +42,9 @@ export default function Recipe() {
                 width="150px" height="auto"></img>
             </p>
             <ul>
-                <li>{recipe.strIngredient1}</li>
-                <li>{recipe.strIngredient2}</li>
-                <li>{recipe.strIngredient3}</li>
-                <li>{recipe.strIngredient4}</li>
-                <li>{recipe.strIngredient5} ...</li>
+            {getMaxNumOfIngredients().map(ingredient =>
+                <li>{ingredient}</li>)}
+                <li>...</li>
             </ul>
             <Button aria-label="outlined primary button group">See recipe</Button>
         </div>
