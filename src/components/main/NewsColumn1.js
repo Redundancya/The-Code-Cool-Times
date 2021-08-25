@@ -20,12 +20,17 @@ export default function NewsColumn1() {
             : "No author"
         }
       />
-      <a
-        className="link"
-        href={context.articles[articlesIndex]?.url ?? "Loading..."}
-      >
-        <h3>{context.articles[articlesIndex]?.title ?? "Title loading..."}</h3>
-      </a>
+
+      <h3>
+        <a
+          href={context.articles[articlesIndex]?.url ?? "Loading..."}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {context.articles[articlesIndex]?.title ?? "Title loading..."}
+        </a>
+      </h3>
+
       <p>
         {context.articles[articlesIndex]?.description ?? "Content loading..."}
       </p>
