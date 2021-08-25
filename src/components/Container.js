@@ -26,11 +26,15 @@ export default function Container() {
   };
 
   const getTopNewsForTheme = (newTheme) => {
+    console.log(
+      "https://newsapi.org/v2/everything?q=" + newTheme + context.apiKey
+    );
     axios
       .get(
         "https://newsapi.org/v2/everything?q=" +
           newTheme +
-          "&apiKey=803b1f20229542109d3b21b58d162064"
+          "&apiKey=" +
+          context.apiKey
       )
       .then((response) => {
         context.setArticles(response.data.articles);

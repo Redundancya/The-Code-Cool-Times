@@ -3,21 +3,21 @@ import axios from "axios";
 
 export const NewsContext = createContext();
 
-// const TusisApi =
-//   "https://newsapi.org/v2/everything?qInTitle=everything&pageSize=20&apiKey=803b1f20229542109d3b21b58d162064";
-const RokysApi =
-  "https://newsapi.org/v2/everything?qInTitle=everything&pageSize=20&apiKey=d1f3e37a2d654d0dadc45046a0ab9ec7";
+const apiBaseUrl =
+  "https://newsapi.org/v2/everything?q=everything&pageSize=20&apiKey=";
+
+const apiKey = "d1f3e37a2d654d0dadc45046a0ab9ec7"; // Roky's
+// const ApiKey = "803b1f20229542109d3b21b58d162064"; // Tusi's
 
 export const NewsProvider = (props) => {
   const [loading, setLoading] = useState(true);
 
   const getTopNews = () => {
-    axios
-      .get(RokysApi)
-      .then((response) => {
-        setArticles(response.data.articles);
-        setLoading(false);
-      });
+    console.log(`${apiBaseUrl}${apiKey}`);
+    axios.get(`${apiBaseUrl}${apiKey}`).then((response) => {
+      setArticles(response.data.articles);
+      setLoading(false);
+    });
   };
 
   const [articles, setArticles] = useState(() => getTopNews());
@@ -29,6 +29,7 @@ export const NewsProvider = (props) => {
         loading: loading,
         setArticles: setArticles,
         setLoading: setLoading,
+        apiKey: apiKey,
       }}
     >
       {props.children}
