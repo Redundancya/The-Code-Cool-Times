@@ -8,9 +8,12 @@ export default function SourceButton(props) {
         variant="contained"
         size="small"
         style={{
-          fontSize: "10px",
+          fontSize: "9px",
           fontFamily: "EB Garamond, sans-serif",
           background: "#E8FFCC",
+          margin: "4px",
+          padding: "2px",
+          float: "right",
         }}
         disableElevation
       >

@@ -7,10 +7,11 @@ export default function AuthorButton(props) {
       variant="contained"
       size="small"
       style={{
-        fontSize: "8px",
-        fontFamily: "sans-serif",
+        fontSize: "9px",
+        fontFamily: "EB Garamond, sans-serif",
         background: "#eee",
-        marginBottom: "5px",
+        margin: "4px",
+        padding: "2px",
       }}
       disableElevation
       disabled
