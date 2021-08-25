@@ -8,7 +8,7 @@ import ThemeSwitch from "./header/ThemeSwitch";
 import MainNews from "./main/MainNews";
 import { NewsContext } from "./main/NewsContext";
 import axios from "axios";
-import { useTheme, useThemeUpdate } from "../ThemeContext";
+import { useTheme } from "../theme/ThemeContext";
 
 const options = {
   weekday: "long",
@@ -21,8 +21,7 @@ const today = new Date();
 export default function Container() {
   const context = useContext(NewsContext);
 
-  const darkTheme = useTheme();
-  const toggleTheme = useThemeUpdate();
+  const theme = useTheme();
 
   const changeNewsTheme = (newTheme) => {
     context.setLoading(true);
@@ -44,7 +43,7 @@ export default function Container() {
   };
 
   return (
-    <div className={`Container ${darkTheme ? "DarkTheme" : ""}`}>
+    <div className={`Container ${theme === "dark" ? "DarkTheme" : ""}`}>
       <div className="Grid-item Header-top Header-weather">HeaderWeather</div>
       <div className="Grid-item Header-top Header-logo logo">
         The Code Cool Times
