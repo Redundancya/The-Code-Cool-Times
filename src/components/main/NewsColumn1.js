@@ -24,6 +24,15 @@ export default function NewsColumn1() {
       <p>
         {context.articles[articlesIndex]?.description ?? "Content loading..."}
       </p>
+
+      <h4>
+        Author:{" "}
+        {context.articles[articlesIndex].author
+          ? context.articles[articlesIndex].author
+          : "No author"}
+      </h4>
+
+      <h4>Source: {context.articles[articlesIndex].source.name}</h4>
     </div>
   );
 }
