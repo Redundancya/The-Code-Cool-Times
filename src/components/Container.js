@@ -7,6 +7,7 @@ import Quotes from "./header/Quotes";
 import ThemeSwitch from "./header/ThemeSwitch";
 import MainNews from "./main/MainNews";
 import { NewsContext } from "./main/NewsContext";
+import axios from "axios";
 
 const options = {
   weekday: "long",
@@ -20,7 +21,22 @@ export default function Container() {
   const context = useContext(NewsContext);
 
   const changeNewsTheme = (newTheme) => {
+    context.setLoading(true);
     context.setNewsTheme(newTheme);
+    getTopNewsForTheme();
+  };
+
+  const getTopNewsForTheme = () => {
+    axios
+      .get(
+        "https://newsapi.org/v2/everything?q=" +
+          context.newsTheme +
+          "&apiKey=803b1f20229542109d3b21b58d162064"
+      )
+      .then((response) => {
+        context.setArticles(response.data.articles);
+        context.setLoading(false);
+      });
   };
 
   return (
