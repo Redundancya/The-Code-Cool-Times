@@ -54,10 +54,9 @@ export const MainNews = (props) => {
       </h4>
 
       <h4>Source: {context.articles[articlesIndex].source.name}</h4>
-
       <img
         className="mainPicture"
-        src={context.articles[articlesIndex]?.urlToImage ?? "sajt"}
+        src={context.articles[articlesIndex].urlToImage}
         alt={context.articles[articlesIndex]?.source?.name ?? "Loading..."}
       />
       <a
