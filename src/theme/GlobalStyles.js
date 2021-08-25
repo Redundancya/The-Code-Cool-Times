@@ -2,203 +2,209 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
-html {
-  overflow-y: scroll;
-}
+  html {
+    overflow-y: scroll;
+  }
 
-html,
-body {
-  box-sizing: border-box;
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
+  html,
+  body {
+    box-sizing: border-box;
+  }
 
-.mainPicture {
-  height: 300px;
-  width: 100%;
-}
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
 
-body {
-  margin: 0;
-  font-family: "EB Garamond", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  body {
+    margin: 0;
+    font-family: "EB Garamond", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    hyphens: manual;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "NYTCheltenham-Book", serif;
-  margin: 0;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "NYTCheltenham-Book", serif;
+    margin: 0;
+  }
 
-.logo {
-  font-family: "Chomsky", serif;
-  font-size: 3rem;
-}
+  .logo {
+    font-family: "Chomsky", serif;
+    font-size: 3rem;
+  }
 
-h1 {
-  font-size: 3rem;
-}
+  h1 {
+    font-size: 3rem;
+  }
 
-h6 {
-  color: red;
-}
+  h6 {
+    color: red;
+  }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-  font-size: 0.8rem;
-}
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 0.8rem;
+  }
 
-a:link {
-  text-decoration: none;
-}
+  a:link {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+  }
 
-a:visited {
-  text-decoration: none;
-}
+  a:visited {
+    text-decoration: none;
+  }
 
-a:hover {
-  text-decoration: none;
-}
+  a:hover {
+    text-decoration: none;
+  }
 
-a:active {
-  text-decoration: none;
-}
+  a:active {
+    text-decoration: none;
+  }
 
-.Grid-item {
-  /* background-color: lightblue; */
-  padding: 2px 8px;
-  height: 100%;
-  width: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .link {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+  }
 
-.Header {
-  border-top: 1px solid #ebebeb;
-  border-bottom: 4px double #000;
-}
+  a:visited {
+    color: initial;
+  }
 
-.Header-top {
-  margin-top: 8px;
-}
+  .Grid-item {
+    /* background-color: lightblue; */
+    padding: 2px 8px;
+    height: 100%;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.Header-weather {
-  grid-area: wea;
-}
-.Header-logo {
-  grid-area: log;
-}
-.Header-quote {
-  grid-area: quo;
-  display: flex;
-  justify-content: space-between;
-}
+  .Header {
+    border-top: 1px solid #ebebeb;
+    border-bottom: 4px double #000;
+  }
 
-.QuoteContainer {
-  width: 70%;
-  height: 10vh;
-  border: 1px solid #ebebeb;
-  margin: 4px;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .Header-top {
+    margin-top: 8px;
+  }
 
-.Header-column-1 {
-  grid-area: he1;
-}
+  .Header-weather {
+    grid-area: wea;
+  }
 
-.Header-column-2 {
-  grid-area: he2;
-}
+  .Header-logo {
+    grid-area: log;
+  }
 
-.Header-column-3 {
-  grid-area: he3;
-}
+  .Header-quote {
+    grid-area: quo;
+    display: flex;
+    justify-content: space-between;
+  }
 
-.Main {
-  align-items: flex-start;
-  margin: 20px 0;
-  padding: 0 10px;
-}
+  .QuoteContainer {
+    width: 70%;
+    height: 10vh;
+    border: 1px solid #ebebeb;
+    margin: 4px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.Main-column-1 {
-  grid-area: co1;
-}
-.Main-column-2 {
-  grid-area: co2;
-}
-.Main-column-3 {
-  grid-area: co3;
-  border-left: 1px solid #ebebeb;
-  border-right: 1px solid #ebebeb;
-}
-.Main-column-4 {
-  grid-area: co4;
-  text-align: center;
-}
-.Main-column-4 p {
-  margin: 0.5rem;
-  text-align: center;
-}
-.Main-column-4 img {
-  width: 60%
-}
-.Main-comic {
-  grid-area: com;
-}
-.Main-bottom {
-  grid-area: bot;
-}
+  .Header-column-1 {
+    grid-area: he1;
+  }
 
-.Footer {
-  grid-area: foo;
-}
+  .Header-column-2 {
+    grid-area: he2;
+  }
 
-.Container {
-  width: 90%;
-  margin: 0 auto;
-  height: 100vh;
-  display: grid;
-  row-gap: 3%;
-  grid-template-columns: 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr;
-  grid-template-rows: 3fr 1fr 12fr 4fr 1fr;
-  grid-template-areas:
-    "wea wea wea log log log log log log quo quo quo"
-    "he1 he1 he1 he1 he2 he2 he2 he2 he3 he3 he3 he3"
-    "co1 co1 co2 co2 co3 co3 co3 co3 co3 co3 co4 co4"
-    "com com com com co3 co3 co3 co3 co3 co3 co4 co4"
-    "foo foo foo foo foo foo foo foo foo foo foo foo";
-}
+  .Header-column-3 {
+    grid-area: he3;
+  }
 
-.DarkTheme {
-  background-color: darkslategrey;
-  color: white;
-}
+  .Main {
+    align-items: flex-start;
+    margin: 20px 0;
+    padding: 0 10px;
+  }
 
-.link {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.87);
-}
+  .Main-column-1 {
+    grid-area: co1;
+  }
 
-.link :hover {
-  text-decoration: underline;
-}
+  .Main-column-2 {
+    grid-area: co2;
+  }
 
-.link :visited {
-  color: black;
-}
+  .Main-column-3 {
+    grid-area: co3;
+    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
+    padding: 0 20px;
+  }
+
+  .Main-column-4 {
+    grid-area: co4;
+    text-align: center;
+  }
+
+  .Main-column-4 p {
+    margin: 0.5rem;
+    text-align: center;
+  }
+
+  .Main-column-4 img {
+    width: 60%
+  }
+
+  .Main-comic {
+    grid-area: com;
+    border-top: 1px solid #ebebeb;
+    margin: 10px;
+  }
+
+  .Main-bottom {
+    grid-area: bot;
+  }
+
+  .Footer {
+    grid-area: foo;
+  }
+
+  .Container {
+    width: 90%;
+    margin: 0 auto;
+    height: 100vh;
+    display: grid;
+    row-gap: 3%;
+    grid-template-columns: 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr;
+    grid-template-rows: 3fr 1fr 12fr 4fr 1fr;
+    grid-template-areas:
+      "wea wea wea log log log log log log quo quo quo"
+      "he1 he1 he1 he1 he2 he2 he2 he2 he3 he3 he3 he3"
+      "co1 co1 co2 co2 co3 co3 co3 co3 co3 co3 co4 co4"
+      "com com com com co3 co3 co3 co3 co3 co3 co4 co4"
+      "foo foo foo foo foo foo foo foo foo foo foo foo";
+  }
+
+  .DarkTheme {
+    background-color: darkslategrey;
+    color: white;
+  }
 
   `;
