@@ -12,14 +12,14 @@ export function useThemeUpdate() {
 }
 
 export function ThemeProvider({ children }) {
-  const [darkTheme, setDarkTheme] = useState(false);
+  const [theme, setTheme] = useState("light");
 
   function toggleTheme() {
-    setDarkTheme((prevDarkTheme) => !prevDarkTheme);
+    setTheme(theme === "light" ? "dark" : "light");
   }
 
   return (
-    <ThemeContext.Provider value={darkTheme}>
+    <ThemeContext.Provider value={theme}>
       <ThemeUpdateContext.Provider value={toggleTheme}>
         {children}
       </ThemeUpdateContext.Provider>
