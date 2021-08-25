@@ -8,6 +8,7 @@ import ThemeSwitch from "./header/ThemeSwitch";
 import MainNews from "./main/MainNews";
 import { NewsContext } from "./main/NewsContext";
 import axios from "axios";
+import { Nameday } from "./main/Nameday";
 
 const options = {
   weekday: "long",
@@ -104,7 +105,7 @@ export default function Container() {
         </Button>
       </div>
       <div className="Grid-item Header Header-column-3">
-        <h5>Nameday</h5>
+        <Nameday />
       </div>
       <div className="Grid-item Main Main-column-1">
         <NewsColumn1></NewsColumn1>
