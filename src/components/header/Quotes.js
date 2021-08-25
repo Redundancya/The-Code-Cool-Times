@@ -1,46 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
-export default function Quotes() {
-  const [quotes, setQuotes] = useState([
-    {
-      text: "",
-      author: "",
-    },
-  ]);
+const quoteApiUrl = "http://quotes.stormconsultancy.co.uk/random.json";
+const maxQuoteLength = 90;
 
-  const [randomQuote, setRandomQuote] = useState("");
+export default function Quotes() {
+  const [randomQuote, setRandomQuote] = useState({});
+
+  const getQuoteWithShortLength = useCallback(() => {
+    axios.get(quoteApiUrl).then((res) => {
+      if (res.data.quote.length > maxQuoteLength) {
+        getQuoteWithShortLength();
+      } else {
+        setRandomQuote(res.data);
+      }
+    });
+  }, []);
 
   useEffect(() => {
-    if (quotes[0].text === "") {
-      axios
-        .get("https://type.fit/api/quotes")
-        .then((res) => {
-          setQuotes(res.data);
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-      console.log("fetched");
-    } else {
-      setRandomQuote(getRandomQuote());
-      return setRandomQuote;
-    }
-  }, [quotes]);
-
-  const getRandomQuote = () => {
-    return quotes[Math.floor(Math.random() * quotes.length)].text;
-  };
+    getQuoteWithShortLength();
+  }, [getQuoteWithShortLength]);
 
   return (
     <div className="QuoteContainer">
-      <h5
-        style={{
-          textAlign: "center",
-        }}
-      >
-        {randomQuote}
-      </h5>
+      <h5 style={{ textAlign: "center" }}>{randomQuote.quote}</h5>
     </div>
   );
 }
