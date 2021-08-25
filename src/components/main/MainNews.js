@@ -46,6 +46,15 @@ export const MainNews = (props) => {
           Next
         </Button>
       </ButtonGroup>
+      <h4>
+        Author:{" "}
+        {context.articles[articlesIndex].author
+          ? context.articles[articlesIndex].author
+          : "No author"}
+      </h4>
+
+      <h4>Source: {context.articles[articlesIndex].source.name}</h4>
+
       <img
         className="mainPicture"
         src={context.articles[articlesIndex]?.urlToImage ?? "sajt"}

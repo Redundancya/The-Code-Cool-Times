@@ -4,8 +4,6 @@ import axios from "axios";
 export const NewsContext = createContext();
 
 export const NewsProvider = (props) => {
-  const [newsTheme, setNewsTheme] = useState("everything");
-
   const [loading, setLoading] = useState(true);
 
   const getTopNews = () => {
@@ -27,8 +25,6 @@ export const NewsProvider = (props) => {
       value={{
         articles: articles,
         loading: loading,
-        setNewsTheme: setNewsTheme,
-        newsTheme: newsTheme,
         setArticles: setArticles,
         setLoading: setLoading,
       }}

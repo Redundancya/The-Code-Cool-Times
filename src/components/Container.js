@@ -22,15 +22,14 @@ export default function Container() {
 
   const changeNewsTheme = (newTheme) => {
     context.setLoading(true);
-    context.setNewsTheme(newTheme);
-    getTopNewsForTheme();
+    getTopNewsForTheme(newTheme);
   };
 
-  const getTopNewsForTheme = () => {
+  const getTopNewsForTheme = (newTheme) => {
     axios
       .get(
         "https://newsapi.org/v2/everything?q=" +
-          context.newsTheme +
+          newTheme +
           "&apiKey=803b1f20229542109d3b21b58d162064"
       )
       .then((response) => {
