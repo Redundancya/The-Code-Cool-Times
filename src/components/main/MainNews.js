@@ -65,15 +65,16 @@ export const MainNews = (props) => {
         </Button>
       </ButtonGroup>
 
-      <div
-        className="mainPictureContainer"
+      <img
+        src={`${context.articles[articlesIndex].urlToImage}`}
+        alt="dsf"
         style={{
-          background: `url(${context.articles[articlesIndex].urlToImage}) no-repeat center center fixed`,
-          backgroundSize: "cover",
           width: "100%",
-          height: "40vh",
+          height: "45vh",
+          objectFit: "cover",
+          marginBottom: "6px",
         }}
-      ></div>
+      ></img>
 
       <AuthorButton
         author={
@@ -82,19 +83,21 @@ export const MainNews = (props) => {
             : "No author"
         }
       />
+      <SourceButton
+        source={context.articles[articlesIndex].source.name}
+        sourceUrl={context.articles[articlesIndex]?.url ?? "Loading..."}
+      />
       <a
         className="link"
         href={context.articles[articlesIndex]?.url ?? "Loading..."}
+        target="_blank"
+        rel="noreferrer"
       >
         <h2>{context.articles[articlesIndex]?.title ?? "Title loading..."}</h2>
       </a>
       <p>
         {context.articles[articlesIndex]?.description ?? "Content loading..."}
       </p>
-      <SourceButton
-        source={context.articles[articlesIndex].source.name}
-        sourceUrl={context.articles[articlesIndex]?.url ?? "Loading..."}
-      />
     </div>
   );
 };
