@@ -23,9 +23,7 @@ export default function Quotes() {
         });
       console.log("fetched");
     } else {
-      setInterval(() => {
-        setRandomQuote(getRandomQuote());
-      }, 3000);
+      setRandomQuote(getRandomQuote());
       return setRandomQuote;
     }
   }, [quotes]);
