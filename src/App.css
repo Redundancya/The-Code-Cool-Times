@@ -194,6 +194,11 @@ a:active {
     "foo foo foo foo foo foo foo foo foo foo foo foo";
 }
 
+.DarkTheme {
+  background-color: darkslategrey;
+  color: white;
+}
+
 .link {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.87);
