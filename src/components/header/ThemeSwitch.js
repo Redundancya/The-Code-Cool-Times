@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import Brightness5SharpIcon from "@material-ui/icons/Brightness5Sharp";
 import Brightness2Icon from "@material-ui/icons/Brightness2";
-import { useTheme, useThemeUpdate } from "../../ThemeContext";
+import { useTheme, useThemeUpdate } from "../../theme/ThemeContext";
 
 const FlatSwitch = withStyles((theme) => ({
   root: {
@@ -63,16 +63,8 @@ const FlatSwitch = withStyles((theme) => ({
 });
 
 export default function ThemeSwitch() {
-  const darkTheme = useTheme();
+  const theme = useTheme();
   const toggleTheme = useThemeUpdate();
-
-  const [nightTheme, setNightTheme] = useState(false);
-
-  const toggleSwitch = () => {
-    setNightTheme(!nightTheme);
-  };
-
-  /* <Brightness2Icon style={{ color: "white" }} /> */
 
   return (
     <FormGroup>
@@ -91,7 +83,7 @@ export default function ThemeSwitch() {
             checkedIcon={
               <Brightness2Icon fontSize="small" style={{ color: "white" }} />
             }
-            checked={darkTheme}
+            checked={theme === "dark"}
             onChange={toggleTheme}
           />
         }
