@@ -75,6 +75,22 @@ code {
   font-size: 0.8rem;
 }
 
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
 .Grid-item {
   /* background-color: lightblue; */
   padding: 2px 8px;
