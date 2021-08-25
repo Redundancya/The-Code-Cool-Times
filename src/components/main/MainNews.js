@@ -22,21 +22,6 @@ export const MainNews = (props) => {
 
   return (
     <div>
-      <img
-        className="mainPicture"
-        src={context.articles[articlesIndex]?.urlToImage ?? "sajt"}
-        alt={context.articles[articlesIndex]?.source?.name ?? "Loading..."}
-      />
-      <a
-        className="link"
-        href={context.articles[articlesIndex]?.url ?? "Loading..."}
-      >
-        <h3>{context.articles[articlesIndex]?.title ?? "Title loading..."}</h3>
-      </a>
-      <p>
-        {context.articles[articlesIndex]?.description ?? "Content loading..."}
-      </p>
-
       <ButtonGroup size="small" aria-label="primary button group">
         <Button
           disabled={articlesIndex === 0 ? true : false}
@@ -61,6 +46,29 @@ export const MainNews = (props) => {
           Next
         </Button>
       </ButtonGroup>
+      <h4>
+        Author:{" "}
+        {context.articles[articlesIndex].author
+          ? context.articles[articlesIndex].author
+          : "No author"}
+      </h4>
+
+      <h4>Source: {context.articles[articlesIndex].source.name}</h4>
+
+      <img
+        className="mainPicture"
+        src={context.articles[articlesIndex]?.urlToImage ?? "sajt"}
+        alt={context.articles[articlesIndex]?.source?.name ?? "Loading..."}
+      />
+      <a
+        className="link"
+        href={context.articles[articlesIndex]?.url ?? "Loading..."}
+      >
+        <h3>{context.articles[articlesIndex]?.title ?? "Title loading..."}</h3>
+      </a>
+      <p>
+        {context.articles[articlesIndex]?.description ?? "Content loading..."}
+      </p>
     </div>
   );
 };

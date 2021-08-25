@@ -4,17 +4,14 @@ import axios from "axios";
 export const NewsContext = createContext();
 
 export const NewsProvider = (props) => {
-  const [newsTheme, setNewsTheme] = useState("everything");
-
   const [loading, setLoading] = useState(true);
 
   const getTopNews = () => {
     axios
       .get(
-        "https://newsapi.org/v2/everything?q=" +
-          newsTheme +
-          "&apiKey=803b1f20229542109d3b21b58d162064"
+        "https://newsapi.org/v2/everything?qInTitle=everything&pageSize=20&apiKey=803b1f20229542109d3b21b58d162064"
       )
+
       .then((response) => {
         setArticles(response.data.articles);
         setLoading(false);
@@ -28,8 +25,8 @@ export const NewsProvider = (props) => {
       value={{
         articles: articles,
         loading: loading,
-        setNewsTheme: setNewsTheme,
-        newsTheme: newsTheme,
+        setArticles: setArticles,
+        setLoading: setLoading,
       }}
     >
       {props.children}
