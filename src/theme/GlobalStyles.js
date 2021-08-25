@@ -149,10 +149,16 @@ a:active {
   grid-area: co4;
   text-align: center;
 }
+.Main-column-4 p {
+  margin: 0.5rem;
+  text-align: center;
+}
+.Main-column-4 img {
+  width: 60%
+}
 .Main-comic {
   grid-area: com;
 }
-
 .Main-bottom {
   grid-area: bot;
 }

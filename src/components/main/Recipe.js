@@ -14,7 +14,7 @@ export default function Recipe() {
 
   const getRecipeWithShortDescription = useCallback(() => {
     axios.get(recipeUrl).then((response) => {
-      if (response.data.meals[0].strInstructions.length > 430) {
+      if (response.data.meals[0].strInstructions.length > 620) {
         getRecipeWithShortDescription();
       } else {
         setRecipe(response.data.meals[0]);
@@ -26,12 +26,16 @@ export default function Recipe() {
     getRecipeWithShortDescription();
   }, [getRecipeWithShortDescription]);
 
+  const capitalize = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
   const getMaxNumOfIngredients = () => {
-    const maxNumber = 4;
+    const maxNumber = 10;
     let ingredients = Object.keys(recipe)
       .filter((item) => item.toString().startsWith("strIngredient"))
       .filter((key) => recipe[key] !== "")
-      .map((key) => recipe[key]);
+      .map((key) => capitalize(recipe[key]));
     return ingredients.slice(0, maxNumber);
   };
 
@@ -39,14 +43,10 @@ export default function Recipe() {
     <div>
       <h4>Today's meal:</h4>
       <h3>{recipe.strMeal}</h3>
-      {/* <p> */}
-      <img src={recipe.strMealThumb} alt={recipe.strMeal} width="50%"></img>
-      {/* </p> */}
-      <ul>
+      <img src={recipe.strMealThumb} alt={recipe.strMeal}></img>
         {getMaxNumOfIngredients().map((ingredient) => (
-          <li key={ingredient}>{ingredient}</li>
+          <p key={ingredient}>{ingredient}</p>
         ))}
-      </ul>
       <Button
         aria-label="outlined primary button group"
         onClick={() => changeState()}
@@ -58,8 +58,10 @@ export default function Recipe() {
 
   const recipeBack = (
     <div>
-      <h4>{recipe.strMeal} step by step:</h4>
-      <p>{recipe.strInstructions}</p>
+      <h4>Step by step</h4>
+      <h3>{recipe.strMeal}</h3>
+      <img src={recipe.strMealThumb} alt={recipe.strMeal}></img>
+      <p className="description">{recipe.strInstructions}</p>
       <Button
         aria-label="outlined primary button group"
         onClick={() => changeState()}
