@@ -14,7 +14,6 @@ export default function Comics() {
     setInterval(() => {
       setUrl(getRandomComics());
     }, 30000);
-    return setUrl;
   }, []);
 
   return <img src={url} alt="garfield-comics" width="100%"></img>;

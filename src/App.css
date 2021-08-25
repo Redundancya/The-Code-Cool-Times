@@ -17,6 +17,9 @@
     url("./resources/fonts/NYTCheltenham-BookItalic.woff2") format("woff");
   font-style: italic, oblique;
 }
+html {
+  overflow-y: scroll;
+}
 
 html,
 body {
@@ -30,8 +33,8 @@ body {
 }
 
 .mainPicture {
-  height: 400px;
-  width: 800px;
+  height: 320px;
+  width: 100%;
 }
 
 body {
@@ -74,13 +77,21 @@ code {
 
 .Grid-item {
   /* background-color: lightblue; */
-  padding: 8px;
+  padding: 2px 8px;
   height: 100%;
   width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.Header {
+  border-top: 1px solid #ebebeb;
+  border-bottom: 4px double #000;
+}
+
+.Header-top {
+  margin-top: 8px;
 }
 
 .Header-weather {
@@ -91,6 +102,19 @@ code {
 }
 .Header-quote {
   grid-area: quo;
+  display: flex;
+  justify-content: space-between;
+}
+
+.QuoteContainer {
+  width: 70%;
+  height: 100%;
+  border: 1px solid #ebebeb;
+  margin: 4px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Header-column-1 {
@@ -107,7 +131,8 @@ code {
 
 .Main {
   align-items: flex-start;
-  padding-top: 20px;
+  margin: 20px 0;
+  padding: 0 10px;
 }
 
 .Main-column-1 {
@@ -118,9 +143,12 @@ code {
 }
 .Main-column-3 {
   grid-area: co3;
+  border-left: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
 }
 .Main-column-4 {
   grid-area: co4;
+  text-align: center;
 }
 .Main-comic {
   grid-area: com;
@@ -139,13 +167,14 @@ code {
   margin: 0 auto;
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  row-gap: 3%;
+  grid-template-columns: 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr;
   grid-template-rows: 3fr 1fr 12fr 4fr 1fr;
   grid-template-areas:
     "wea wea wea log log log log log log quo quo quo"
     "he1 he1 he1 he1 he2 he2 he2 he2 he3 he3 he3 he3"
     "co1 co1 co2 co2 co3 co3 co3 co3 co3 co3 co4 co4"
-    "com com com com bot bot bot bot bot bot bot bot"
+    "com com com com co3 co3 co3 co3 co3 co3 co4 co4"
     "foo foo foo foo foo foo foo foo foo foo foo foo";
 }
 

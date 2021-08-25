@@ -24,32 +24,6 @@ export default function NewsColumn1() {
       <p>
         {context.articles[articlesIndex]?.description ?? "Content loading..."}
       </p>
-
-      <a
-        className="link"
-        href={context.articles[articlesIndex + 1]?.url ?? "Loading..."}
-      >
-        <h3>
-          {context.articles[articlesIndex + 1]?.title ?? "Title loading..."}
-        </h3>
-      </a>
-      <p>
-        {context.articles[articlesIndex + 1]?.description ??
-          "Content loading..."}
-      </p>
-
-      <a
-        className="link"
-        href={context.articles[articlesIndex + 2]?.url ?? "Loading..."}
-      >
-        <h3>
-          {context.articles[articlesIndex + 2]?.title ?? "Title loading..."}
-        </h3>
-      </a>
-      <p>
-        {context.articles[articlesIndex + 2]?.description ??
-          "Content loading..."}
-      </p>
     </div>
   );
 }
