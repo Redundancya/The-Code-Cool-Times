@@ -1,14 +1,10 @@
 import "../../App.css";
-import React, { useState, useEffect, useContext } from "react";
-import { ButtonGroup, Button } from "@material-ui/core";
-import placeholder from "../../resources/images/placeholder.png";
+import React, { useState, useContext } from "react";
 import { NewsContext } from "./NewsContext";
 
 export default function NewsColumn1() {
   const context = useContext(NewsContext);
-  const [articlesIndex, setArticlesIndex] = useState(
-    Math.floor(Math.random() * 17) + 0
-  );
+  const [articlesIndex] = useState(Math.floor(Math.random() * 17) + 0);
 
   if (context.loading) {
     return <div>Loading....</div>;
