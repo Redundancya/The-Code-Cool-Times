@@ -129,6 +129,25 @@ export const GlobalStyles = createGlobalStyle`
 
   .Header-weather {
     grid-area: wea;
+    position: relative;
+  }
+
+  #weather-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position:absolute;
+  left: 40%;
+  }
+
+  #weather-left {
+    margin-top: 5%;
+    width: 15%;
+  }
+
+  #weather-right {
+    margin-left: 5%;
+    margin-top: 8%;
   }
 
   .Header-logo {

@@ -10,6 +10,7 @@ import { NewsContext } from "./main/NewsContext";
 import { useTheme } from "../theme/ThemeContext";
 import { Nameday } from "./main/Nameday";
 import { ThemeProvider } from "styled-components";
+import Weather from "./header/Weather"
 import { GlobalStyles } from "../theme/GlobalStyles";
 
 const options = {
@@ -28,6 +29,9 @@ export default function Container() {
     <ThemeProvider theme={themeDetails.themeStyles}>
       <GlobalStyles />
       <div className="Container">
+        <div className="Grid-item Header-top Header-weather"><Weather /></div>
+        <div className="Grid-item Header-top Header-logo logo">
+          The Code Cool Times
         <div className="Grid-item Header-top Header-weather"></div>
         <div className="Grid-item Header-top Header-logo FlexColumn">
           <div className="logoSubtitle">
