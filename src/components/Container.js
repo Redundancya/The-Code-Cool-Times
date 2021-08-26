@@ -29,8 +29,11 @@ export default function Container() {
       <GlobalStyles />
       <div className="Container">
         <div className="Grid-item Header-top Header-weather"></div>
-        <div className="Grid-item Header-top Header-logo logo">
-          The Code Cool Times
+        <div className="Grid-item Header-top Header-logo">
+          <div className="logoSubtitle">
+            Your one-stop shop of daily news for your morning coffee
+          </div>
+          <h1 className="logo">The Code Cool Times</h1>
         </div>
         <div className="Grid-item Header-top Header-quote">
           <Quotes />
@@ -41,57 +44,37 @@ export default function Container() {
         </div>
         <div className="Grid-item Header Header-column-2">
           <Button
-            className="ButtonText"
+            className="CategorySelector"
             onClick={() => context.setNewsTheme("business")}
             size="small"
-            style={{
-              fontSize: "10px",
-              fontFamily: "EB Garamond, sans-serif",
-            }}
           >
             Business
           </Button>
           <Button
-            className="ButtonText"
+            className="CategorySelector"
             onClick={() => context.setNewsTheme("entertainment")}
             size="small"
-            style={{
-              fontSize: "10px",
-              fontFamily: "EB Garamond, sans-serif",
-            }}
           >
             Entertainment
           </Button>
           <Button
-            className="ButtonText"
+            className="CategorySelector"
             onClick={() => context.setNewsTheme("health")}
             size="small"
-            style={{
-              fontSize: "10px",
-              fontFamily: "EB Garamond, sans-serif",
-            }}
           >
             Health
           </Button>
           <Button
-            className="ButtonText"
+            className="CategorySelector"
             onClick={() => context.setNewsTheme("sciences")}
             size="small"
-            style={{
-              fontSize: "10px",
-              fontFamily: "EB Garamond, sans-serif",
-            }}
           >
             Sciences
           </Button>
           <Button
-            className="ButtonText"
+            className="CategorySelector"
             onClick={() => context.setNewsTheme("technology")}
             size="small"
-            style={{
-              fontSize: "10px",
-              fontFamily: "EB Garamond, sans-serif",
-            }}
           >
             Technology
           </Button>

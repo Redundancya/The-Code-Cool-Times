@@ -20,5 +20,5 @@ export const Nameday = () => {
     return <div> </div>;
   }
 
-  return <div>Today's nameday(s): {nameday}</div>;
+  return <div className="NameDay">Today's nameday(s): {nameday}</div>;
 };
