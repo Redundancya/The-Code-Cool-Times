@@ -2,7 +2,6 @@ import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import RecipeButton from "./RecipeButton";
 
-
 export default function Recipe() {
   const recipeUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
 
@@ -51,8 +50,8 @@ export default function Recipe() {
       <h4>Today's meal:</h4>
       <h3>{recipe.strMeal}</h3>
       <img src={recipe.strMealThumb} alt={recipe.strMeal}></img>
-      <RecipeButton 
-        text = {"Go to recipe"}
+      <RecipeButton
+        text={"See recipe"}
         callback={() => changeState()}
       ></RecipeButton>
       {getMaxNumOfIngredients().map((ingredient) => (
@@ -62,17 +61,21 @@ export default function Recipe() {
   );
 
   const recipeBack = (
-    <div>
+    <div className="FlexColumn">
       <h4>Step by step</h4>
       <h3>{recipe.strMeal}</h3>
       <img src={recipe.strMealThumb} alt={recipe.strMeal}></img>
-      <RecipeButton 
-        text = {"See ingredients"}
+      <RecipeButton
+        text={"See ingredients"}
         callback={() => changeState()}
       ></RecipeButton>
       <p id="recipe-description">{recipe.strInstructions}</p>
     </div>
   );
 
-  return loading === true ? "Loading..." : (state === "front" ? recipeFront : recipeBack);
+  return loading === true
+    ? "Loading..."
+    : state === "front"
+    ? recipeFront
+    : recipeBack;
 }
