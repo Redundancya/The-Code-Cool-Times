@@ -8,6 +8,8 @@ import ThemeSwitch from "./header/ThemeSwitch";
 import MainNews from "./main/MainNews";
 import { NewsContext } from "./main/NewsContext";
 import axios from "axios";
+import { useTheme } from "../theme/ThemeContext";
+import { Nameday } from "./main/Nameday";
 
 const options = {
   weekday: "long",
@@ -20,6 +22,8 @@ const today = new Date();
 export default function Container() {
   const context = useContext(NewsContext);
 
+  const theme = useTheme();
+
   const changeNewsTheme = (newTheme) => {
     context.setLoading(true);
     getTopNewsForTheme(newTheme);
@@ -30,7 +34,8 @@ export default function Container() {
       .get(
         "https://newsapi.org/v2/everything?q=" +
           newTheme +
-          "&apiKey=803b1f20229542109d3b21b58d162064"
+          "&apiKey=" +
+          context.apiKey
       )
       .then((response) => {
         const filteredResponse = response.data.articles.filter(
@@ -42,7 +47,7 @@ export default function Container() {
   };
 
   return (
-    <div className="Container">
+    <div className={`Container ${theme === "dark" ? "DarkTheme" : ""}`}>
       <div className="Grid-item Header-top Header-weather">HeaderWeather</div>
       <div className="Grid-item Header-top Header-logo logo">
         The Code Cool Times
@@ -107,7 +112,7 @@ export default function Container() {
         </Button>
       </div>
       <div className="Grid-item Header Header-column-3">
-        <h5>Nameday</h5>
+        <Nameday />
       </div>
       <div className="Grid-item Main Main-column-1">
         <NewsColumn1></NewsColumn1>

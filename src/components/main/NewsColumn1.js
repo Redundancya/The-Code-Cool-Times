@@ -1,6 +1,8 @@
 import "../../App.css";
 import React, { useState, useContext } from "react";
 import { NewsContext } from "./NewsContext";
+import AuthorButton from "./AuthorButton";
+import SourceButton from "./SourceButton";
 
 export default function NewsColumn1() {
   const context = useContext(NewsContext);
@@ -11,24 +13,31 @@ export default function NewsColumn1() {
   }
   return (
     <div>
-      <a
-        className="link"
-        href={context.articles[articlesIndex]?.url ?? "Loading..."}
-      >
-        <h3>{context.articles[articlesIndex]?.title ?? "Title loading..."}</h3>
-      </a>
+      <AuthorButton
+        author={
+          context.articles[articlesIndex].author
+            ? context.articles[articlesIndex].author
+            : "No author"
+        }
+      />
+
+      <h3>
+        <a
+          href={context.articles[articlesIndex]?.url ?? "Loading..."}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {context.articles[articlesIndex]?.title ?? "Title loading..."}
+        </a>
+      </h3>
+
       <p>
         {context.articles[articlesIndex]?.description ?? "Content loading..."}
       </p>
-
-      <h4>
-        Author:{" "}
-        {context.articles[articlesIndex].author
-          ? context.articles[articlesIndex].author
-          : "No author"}
-      </h4>
-
-      <h4>Source: {context.articles[articlesIndex].source.name}</h4>
+      <SourceButton
+        source={context.articles[articlesIndex].source.name}
+        sourceUrl={context.articles[articlesIndex]?.url ?? "Loading..."}
+      />
     </div>
   );
 }

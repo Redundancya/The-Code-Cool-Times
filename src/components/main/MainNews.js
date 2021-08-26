@@ -2,6 +2,8 @@ import "../../App.css";
 import React, { useState, useContext } from "react";
 import { ButtonGroup, Button } from "@material-ui/core";
 import { NewsContext } from "./NewsContext";
+import AuthorButton from "./AuthorButton";
+import SourceButton from "./SourceButton";
 
 export const MainNews = (props) => {
   const context = useContext(NewsContext);
@@ -20,9 +22,25 @@ export const MainNews = (props) => {
   }
 
   return (
-    <div>
-      <ButtonGroup size="small" aria-label="primary button group">
+    <div
+      style={{
+        justifyContent: "center",
+        position: "relative",
+      }}
+    >
+      <ButtonGroup
+        aria-label="primary button group"
+        style={{
+          margin: "0 5px 10px 5px",
+          // justifyContent: "center",
+          width: "100%",
+          position: "absolute",
+          top: "6px",
+          left: "2px",
+        }}
+      >
         <Button
+          variant="contained"
           disabled={articlesIndex === 0 ? true : false}
           onClick={() => changeNews("previous")}
           size="small"
@@ -34,6 +52,7 @@ export const MainNews = (props) => {
           Previous
         </Button>
         <Button
+          variant="contained"
           disabled={articlesIndex === 19 ? true : false}
           onClick={() => changeNews("next")}
           size="small"
@@ -45,24 +64,36 @@ export const MainNews = (props) => {
           Next
         </Button>
       </ButtonGroup>
-      <h4>
-        Author:{" "}
-        {context.articles[articlesIndex].author
-          ? context.articles[articlesIndex].author
-          : "No author"}
-      </h4>
 
-      <h4>Source: {context.articles[articlesIndex].source.name}</h4>
       <img
-        className="mainPicture"
-        src={context.articles[articlesIndex].urlToImage}
-        alt={context.articles[articlesIndex]?.source?.name ?? "Loading..."}
+        src={`${context.articles[articlesIndex].urlToImage}`}
+        alt="dsf"
+        style={{
+          width: "100%",
+          height: "45vh",
+          objectFit: "cover",
+          marginBottom: "6px",
+        }}
+      ></img>
+
+      <AuthorButton
+        author={
+          context.articles[articlesIndex].author
+            ? context.articles[articlesIndex].author
+            : "No author"
+        }
+      />
+      <SourceButton
+        source={context.articles[articlesIndex].source.name}
+        sourceUrl={context.articles[articlesIndex]?.url ?? "Loading..."}
       />
       <a
         className="link"
         href={context.articles[articlesIndex]?.url ?? "Loading..."}
+        target="_blank"
+        rel="noreferrer"
       >
-        <h3>{context.articles[articlesIndex]?.title ?? "Title loading..."}</h3>
+        <h2>{context.articles[articlesIndex]?.title ?? "Title loading..."}</h2>
       </a>
       <p>
         {context.articles[articlesIndex]?.description ?? "Content loading..."}
