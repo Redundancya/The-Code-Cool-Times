@@ -133,6 +133,9 @@ export const GlobalStyles = createGlobalStyle`
 
   .Header-logo {
     grid-area: log;
+  }
+
+  .FlexColumn {
     display: flex;
     flex-direction: column;
     justify-content: center;

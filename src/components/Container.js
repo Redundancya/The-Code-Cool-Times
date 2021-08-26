@@ -29,7 +29,7 @@ export default function Container() {
       <GlobalStyles />
       <div className="Container">
         <div className="Grid-item Header-top Header-weather"></div>
-        <div className="Grid-item Header-top Header-logo">
+        <div className="Grid-item Header-top Header-logo FlexColumn">
           <div className="logoSubtitle">
             Your one-stop shop of daily news for your morning coffee
           </div>
