@@ -52,7 +52,7 @@ export default function Recipe() {
       <h3>{recipe.strMeal}</h3>
       <img src={recipe.strMealThumb} alt={recipe.strMeal}></img>
       <RecipeButton 
-        text = {"See recipe"}
+        text = {"Go to recipe"}
         callback={() => changeState()}
       ></RecipeButton>
       {getMaxNumOfIngredients().map((ingredient) => (
