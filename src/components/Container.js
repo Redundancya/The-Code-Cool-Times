@@ -12,6 +12,7 @@ import { useTheme } from "../theme/ThemeContext";
 import { Nameday } from "./main/Nameday";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles, lightTheme, darkTheme } from "../theme/GlobalStyles";
+import Weather from "./header/Weather"
 
 const options = {
   weekday: "long",
@@ -24,7 +25,6 @@ const today = new Date();
 export default function Container() {
   const themeDetails = useTheme();
   console.log(themeDetails);
-
   const context = useContext(NewsContext);
 
   const changeNewsTheme = (newTheme) => {
@@ -53,7 +53,7 @@ export default function Container() {
     <ThemeProvider theme={themeDetails.themeStyles}>
       <GlobalStyles />
       <div className="Container">
-        <div className="Grid-item Header-top Header-weather">HeaderWeather</div>
+        <div className="Grid-item Header-top Header-weather"><Weather /></div>
         <div className="Grid-item Header-top Header-logo logo">
           The Code Cool Times
         </div>
