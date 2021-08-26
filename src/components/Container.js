@@ -7,11 +7,10 @@ import Quotes from "./header/Quotes";
 import ThemeSwitch from "./header/ThemeSwitch";
 import MainNews from "./main/MainNews";
 import { NewsContext } from "./main/NewsContext";
-import axios from "axios";
 import { useTheme } from "../theme/ThemeContext";
 import { Nameday } from "./main/Nameday";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyles, lightTheme, darkTheme } from "../theme/GlobalStyles";
+import { GlobalStyles } from "../theme/GlobalStyles";
 
 const options = {
   weekday: "long",
@@ -23,8 +22,6 @@ const today = new Date();
 
 export default function Container() {
   const themeDetails = useTheme();
-  console.log(themeDetails);
-
   const context = useContext(NewsContext);
 
   return (
@@ -45,7 +42,7 @@ export default function Container() {
         <div className="Grid-item Header Header-column-2">
           <Button
             className="ButtonText"
-            onClick={() => context.changeNewsTheme("business")}
+            onClick={() => context.setNewsTheme("business")}
             size="small"
             style={{
               fontSize: "10px",
@@ -56,7 +53,7 @@ export default function Container() {
           </Button>
           <Button
             className="ButtonText"
-            onClick={() => context.changeNewsTheme("entertainment")}
+            onClick={() => context.setNewsTheme("entertainment")}
             size="small"
             style={{
               fontSize: "10px",
@@ -67,7 +64,7 @@ export default function Container() {
           </Button>
           <Button
             className="ButtonText"
-            onClick={() => context.changeNewsTheme("health")}
+            onClick={() => context.setNewsTheme("health")}
             size="small"
             style={{
               fontSize: "10px",
@@ -78,7 +75,7 @@ export default function Container() {
           </Button>
           <Button
             className="ButtonText"
-            onClick={() => context.changeNewsTheme("sciences")}
+            onClick={() => context.setNewsTheme("sciences")}
             size="small"
             style={{
               fontSize: "10px",
@@ -89,7 +86,7 @@ export default function Container() {
           </Button>
           <Button
             className="ButtonText"
-            onClick={() => context.changeNewsTheme("technology")}
+            onClick={() => context.setNewsTheme("technology")}
             size="small"
             style={{
               fontSize: "10px",

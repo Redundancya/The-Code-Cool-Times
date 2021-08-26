@@ -31,7 +31,6 @@ export function CustomThemeProvider({ children }) {
         themeStyles: themeStyles,
       }}
     >
-      {console.log(theme)}
       <ThemeUpdateContext.Provider value={toggleTheme}>
         {children}
       </ThemeUpdateContext.Provider>
