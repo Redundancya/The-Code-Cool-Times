@@ -1,5 +1,5 @@
 import "../../App.css";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { NewsContext } from "./NewsContext";
 import AuthorButton from "./AuthorButton";
 import SourceButton from "./SourceButton";
@@ -7,6 +7,8 @@ import SourceButton from "./SourceButton";
 export default function NewsColumn1() {
   const context = useContext(NewsContext);
   const [articlesIndex] = useState(Math.floor(Math.random() * 16 - 1));
+
+  useEffect(() => {}, [context.articles]);
 
   if (context.loading) {
     return <div>Loading....</div>;
