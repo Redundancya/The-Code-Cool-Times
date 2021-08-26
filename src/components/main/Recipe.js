@@ -41,7 +41,9 @@ export default function Recipe() {
       .filter((item) => item.toString().startsWith("strIngredient"))
       .filter((key) => recipe[key] !== "")
       .map((key) => capitalize(recipe[key]));
-    return ingredients.slice(0, maxNumber);
+
+    let uniqueIngredients = [...new Set(ingredients)]
+    return uniqueIngredients.slice(0, maxNumber);
   };
 
   const recipeFront = (
