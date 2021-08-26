@@ -27,6 +27,7 @@ export const GlobalStyles = createGlobalStyle`
     hyphens: manual;
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
+    transition: all 0.50s linear;
   }
 
   h1,
@@ -40,9 +41,17 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
   }
 
+  .logoSubtitle {
+    margin: 0 auto;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    font-family: 'Libre Franklin', sans-serif;
+  }
+
   .logo {
     font-family: "Chomsky", serif;
     font-size: 3rem;
+    font-weight: lighter;
   }
 
   h1 {
@@ -87,6 +96,18 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
   }
 
+  .CategorySelector {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 10px;
+    text-transform: "uppercase";
+    color: ${({ theme }) => theme.text};
+  }
+
+  .NameDay {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 12px;
+  }
+
   .Grid-item {
     /* background-color: lightblue; */
     padding: 2px 8px;
@@ -112,6 +133,10 @@ export const GlobalStyles = createGlobalStyle`
 
   .Header-logo {
     grid-area: log;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .Header-quote {
@@ -122,7 +147,6 @@ export const GlobalStyles = createGlobalStyle`
 
   .QuoteContainer {
     width: 70%;
-    height: 10vh;
     border: 1px solid #ebebeb;
     margin: 4px;
     padding: 10px;
@@ -224,6 +248,6 @@ export const lightTheme = {
   text: "black",
 };
 export const darkTheme = {
-  body: "#334C4C",
+  body: "#33404c",
   text: "white",
 };
