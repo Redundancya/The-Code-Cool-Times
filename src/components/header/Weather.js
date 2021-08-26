@@ -25,10 +25,10 @@ axios.get(currentWeatherURL)
 
 
 return (
-    <div className="container">
-        <img width="15%" className="container__image" src={icon} alt="icon"/>
+    <div>
+        <img width="15%" src={icon} alt="icon"/>
         <span>{weatherStatus},  </span>
         <span>{temperature}  °C</span>
-    </div>
+    </div>  
   )
 }
