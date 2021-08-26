@@ -9,10 +9,10 @@ export default function SourceButton(props) {
         size="small"
         style={{
           fontSize: "9px",
-          fontFamily: "EB Garamond, sans-serif",
+          fontFamily: "Libre Franklin, sans-serif",
           background: "#E8FFCC",
           margin: "4px",
-          padding: "2px",
+          padding: "2px 6px",
           float: "right",
         }}
         disableElevation
