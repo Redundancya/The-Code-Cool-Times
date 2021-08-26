@@ -7,12 +7,11 @@ import Quotes from "./header/Quotes";
 import ThemeSwitch from "./header/ThemeSwitch";
 import MainNews from "./main/MainNews";
 import { NewsContext } from "./main/NewsContext";
-import axios from "axios";
 import { useTheme } from "../theme/ThemeContext";
 import { Nameday } from "./main/Nameday";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyles, lightTheme, darkTheme } from "../theme/GlobalStyles";
 import Weather from "./header/Weather"
+import { GlobalStyles } from "../theme/GlobalStyles";
 
 const options = {
   weekday: "long",
@@ -24,30 +23,7 @@ const today = new Date();
 
 export default function Container() {
   const themeDetails = useTheme();
-  console.log(themeDetails);
   const context = useContext(NewsContext);
-
-  const changeNewsTheme = (newTheme) => {
-    context.setLoading(true);
-    getTopNewsForTheme(newTheme);
-  };
-
-  const getTopNewsForTheme = (newTheme) => {
-    axios
-      .get(
-        "https://newsapi.org/v2/everything?q=" +
-          newTheme +
-          "&apiKey=" +
-          context.apiKey
-      )
-      .then((response) => {
-        const filteredResponse = response.data.articles.filter(
-          (article) => !article.description.includes("</")
-        );
-        context.setArticles(filteredResponse);
-        context.setLoading(false);
-      });
-  };
 
   return (
     <ThemeProvider theme={themeDetails.themeStyles}>
@@ -56,6 +32,12 @@ export default function Container() {
         <div className="Grid-item Header-top Header-weather"><Weather /></div>
         <div className="Grid-item Header-top Header-logo logo">
           The Code Cool Times
+        <div className="Grid-item Header-top Header-weather"></div>
+        <div className="Grid-item Header-top Header-logo">
+          <div className="logoSubtitle">
+            Your one-stop shop of daily news for your morning coffee
+          </div>
+          <h1 className="logo">The Code Cool Times</h1>
         </div>
         <div className="Grid-item Header-top Header-quote">
           <Quotes />
@@ -66,57 +48,37 @@ export default function Container() {
         </div>
         <div className="Grid-item Header Header-column-2">
           <Button
-            className="ButtonText"
-            onClick={() => changeNewsTheme("business")}
+            className="CategorySelector"
+            onClick={() => context.setNewsTheme("business")}
             size="small"
-            style={{
-              fontSize: "10px",
-              fontFamily: "EB Garamond, sans-serif",
-            }}
           >
             Business
           </Button>
           <Button
-            className="ButtonText"
-            onClick={() => changeNewsTheme("entertainment")}
+            className="CategorySelector"
+            onClick={() => context.setNewsTheme("entertainment")}
             size="small"
-            style={{
-              fontSize: "10px",
-              fontFamily: "EB Garamond, sans-serif",
-            }}
           >
             Entertainment
           </Button>
           <Button
-            className="ButtonText"
-            onClick={() => changeNewsTheme("health")}
+            className="CategorySelector"
+            onClick={() => context.setNewsTheme("health")}
             size="small"
-            style={{
-              fontSize: "10px",
-              fontFamily: "EB Garamond, sans-serif",
-            }}
           >
             Health
           </Button>
           <Button
-            className="ButtonText"
-            onClick={() => changeNewsTheme("sciences")}
+            className="CategorySelector"
+            onClick={() => context.setNewsTheme("sciences")}
             size="small"
-            style={{
-              fontSize: "10px",
-              fontFamily: "EB Garamond, sans-serif",
-            }}
           >
             Sciences
           </Button>
           <Button
-            className="ButtonText"
-            onClick={() => changeNewsTheme("technology")}
+            className="CategorySelector"
+            onClick={() => context.setNewsTheme("technology")}
             size="small"
-            style={{
-              fontSize: "10px",
-              fontFamily: "EB Garamond, sans-serif",
-            }}
           >
             Technology
           </Button>

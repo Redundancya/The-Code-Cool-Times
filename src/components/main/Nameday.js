@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 export const Nameday = () => {
-  const [nameday, setNameday] = useState([]);
+  const [nameday, setNameday] = useState("");
 
   useEffect(() => {
     function performSignIn() {
       fetch("https://nameday.abalin.net/today", {
-        mode: "cors",
-        credentials: "include",
         method: "POST",
-        headers: {},
       })
         .then((response) => response.json())
         .then((json) => setNameday(json.data.namedays.hu))
@@ -19,6 +16,9 @@ export const Nameday = () => {
     }
     performSignIn();
   }, []);
+  if (nameday === "") {
+    return <div> </div>;
+  }
 
-  return <div>{nameday}</div>;
+  return <div className="NameDay">Today's nameday(s): {nameday}</div>;
 };
