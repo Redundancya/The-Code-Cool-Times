@@ -108,7 +108,27 @@ export const GlobalStyles = createGlobalStyle`
 
   .Header-weather {
     grid-area: wea;
+    position: relative;
   }
+
+  #container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position:absolute;
+  left: 40%;
+  }
+
+  #leftThing {
+    margin-top: 5%;
+    width: 15%;
+  }
+
+  #content {
+    margin-left: 5%;
+    margin-top: 8%;
+  }
+
 
   .Header-logo {
     grid-area: log;
