@@ -194,6 +194,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .Footer {
     grid-area: foo;
+    padding: 10 8px;
   }
 
   .Container {

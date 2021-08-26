@@ -28,7 +28,7 @@ export default function Container() {
     <ThemeProvider theme={themeDetails.themeStyles}>
       <GlobalStyles />
       <div className="Container">
-        <div className="Grid-item Header-top Header-weather">HeaderWeather</div>
+        <div className="Grid-item Header-top Header-weather"></div>
         <div className="Grid-item Header-top Header-logo logo">
           The Code Cool Times
         </div>
