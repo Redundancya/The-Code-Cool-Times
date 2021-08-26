@@ -9,16 +9,26 @@ const apiTopNewsUrl =
 // const apiKey = "d1f3e37a2d654d0dadc45046a0ab9ec7"; // Roky's
 const apiKey = "803b1f20229542109d3b21b58d162064"; // Tusi's
 
-export const NewsProvider = (props) => {
+export const NewsProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
+  const [newsTheme, setNewsTheme] = useState("everything");
 
   useEffect(() => {
-    getTopNews();
+    getTopNewsForTheme(newsTheme);
   }, []);
 
-  const getTopNews = async () => {
-    const response = await axios.get(`${apiTopNewsUrl}${apiKey}`);
+  const changeNewsTheme = (newTheme) => {
+    setLoading(true);
+    getTopNewsForTheme(newTheme);
+  };
+
+  const getTopNewsForTheme = async (newsTheme) => {
+    const response = await axios.get(
+      "https://newsapi.org/v2/everything?q=" +
+        newsTheme +
+        "&apiKey=803b1f20229542109d3b21b58d162064"
+    );
     const responsesWithNoTag = response.data.articles.filter(
       (article) => !article.description.includes("</")
     );
@@ -34,9 +44,11 @@ export const NewsProvider = (props) => {
         setArticles: setArticles,
         setLoading: setLoading,
         apiKey: apiKey,
+        setNewsTheme: setNewsTheme,
+        changeNewsTheme: changeNewsTheme,
       }}
     >
-      {props.children}
+      {children}
     </NewsContext.Provider>
   );
 };
