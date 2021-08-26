@@ -23,12 +23,13 @@ axios.get(currentWeatherURL)
     });
 }, []);
 
-
-return (
-    <div>
-        <img width="15%" src={icon} alt="icon"/>
-        <span>{weatherStatus},  </span>
-        <span>{temperature}  °C</span>
+  return (
+    <div id="weather-container">
+        <img id="weather-left" width="15%" src={icon} alt="weather-icon"/>
+        <div id="weather-right">
+        <h5>Budapest</h5>
+        <div>{weatherStatus}, {temperature} °C</div>
+        </div>
     </div>  
   )
 }
