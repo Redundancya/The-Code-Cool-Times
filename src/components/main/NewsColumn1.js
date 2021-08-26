@@ -6,7 +6,7 @@ import SourceButton from "./SourceButton";
 
 export default function NewsColumn1() {
   const context = useContext(NewsContext);
-  const [articlesIndex] = useState(Math.floor(Math.random() * 17) + 0);
+  const articlesIndex = Math.floor(Math.random() * 16 - 1) + 0;
 
   if (context.loading) {
     return <div>Loading....</div>;

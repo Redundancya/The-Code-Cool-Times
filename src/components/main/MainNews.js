@@ -11,9 +11,11 @@ export const MainNews = (props) => {
 
   const changeNews = (incrementer) => {
     if (incrementer === "next") {
-      setArticlesIndex((articlesIndex + 1) % 19);
+      setArticlesIndex((articlesIndex + 1) % context.articles.length);
     } else {
-      setArticlesIndex((articlesIndex + 18) % 19);
+      setArticlesIndex(
+        (articlesIndex + context.articles.length - 1) % context.articles.length
+      );
     }
   };
 
