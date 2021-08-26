@@ -6,6 +6,8 @@ export const NewsContext = createContext();
 export const NewsProvider = (props) => {
   const [loading, setLoading] = useState(true);
 
+  const checkForTags = (article) => {};
+
   const getTopNews = () => {
     axios
       .get(
@@ -13,7 +15,10 @@ export const NewsProvider = (props) => {
       )
 
       .then((response) => {
-        setArticles(response.data.articles);
+        const filteredResponse = response.data.articles.filter(
+          (article) => !article.description.includes("</")
+        );
+        setArticles(filteredResponse);
         setLoading(false);
       });
   };

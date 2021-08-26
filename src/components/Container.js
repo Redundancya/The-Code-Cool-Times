@@ -33,7 +33,10 @@ export default function Container() {
           "&apiKey=803b1f20229542109d3b21b58d162064"
       )
       .then((response) => {
-        context.setArticles(response.data.articles);
+        const filteredResponse = response.data.articles.filter(
+          (article) => !article.description.includes("</")
+        );
+        context.setArticles(filteredResponse);
         context.setLoading(false);
       });
   };
