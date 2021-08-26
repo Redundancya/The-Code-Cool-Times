@@ -10,7 +10,7 @@ export default function RecipeButton(props) {
         fontSize: "14px",
         background: "#E8FFCC",
         fontFamily: "Libre Franklin, sans-serif",
-        marginTop: "8px",
+        margin: "8px",
         padding: "2px 6px",
       }}
     >
