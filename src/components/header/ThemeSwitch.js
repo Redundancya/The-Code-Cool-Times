@@ -63,7 +63,7 @@ const FlatSwitch = withStyles((theme) => ({
 });
 
 export default function ThemeSwitch() {
-  const theme = useTheme();
+  const themeDetails = useTheme();
   const toggleTheme = useThemeUpdate();
 
   return (
@@ -83,7 +83,7 @@ export default function ThemeSwitch() {
             checkedIcon={
               <Brightness2Icon fontSize="small" style={{ color: "white" }} />
             }
-            checked={theme === "dark"}
+            checked={themeDetails.theme === "dark"}
             onChange={toggleTheme}
           />
         }

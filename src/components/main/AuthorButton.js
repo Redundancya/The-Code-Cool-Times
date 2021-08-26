@@ -10,6 +10,7 @@ export default function AuthorButton(props) {
         fontSize: "9px",
         fontFamily: "EB Garamond, sans-serif",
         background: "#eee",
+        color: "#333",
         margin: "4px",
         padding: "2px",
       }}
