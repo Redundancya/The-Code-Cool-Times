@@ -6,7 +6,7 @@ import SourceButton from "./SourceButton";
 
 export default function NewsColumn1() {
   const context = useContext(NewsContext);
-  const articlesIndex = Math.floor(Math.random() * 16 - 1) + 0;
+  const articlesIndex = Math.floor(Math.random() * 16 - 1);
 
   if (context.loading) {
     return <div>Loading....</div>;
@@ -15,7 +15,7 @@ export default function NewsColumn1() {
     <div>
       <AuthorButton
         author={
-          context.articles[articlesIndex].author
+          context?.articles[articlesIndex]?.author
             ? context.articles[articlesIndex].author
             : "No author"
         }

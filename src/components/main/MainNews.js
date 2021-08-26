@@ -5,7 +5,7 @@ import { NewsContext } from "./NewsContext";
 import AuthorButton from "./AuthorButton";
 import SourceButton from "./SourceButton";
 
-export const MainNews = (props) => {
+export const MainNews = () => {
   const context = useContext(NewsContext);
   const [articlesIndex, setArticlesIndex] = useState(0);
 
