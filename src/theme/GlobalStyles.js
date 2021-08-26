@@ -168,6 +168,10 @@ export const GlobalStyles = createGlobalStyle`
     text-align: center;
   }
 
+  #recipe-description {
+    text-align: left;
+  }
+
   .Main-column-4 img {
     width: 60%
   }

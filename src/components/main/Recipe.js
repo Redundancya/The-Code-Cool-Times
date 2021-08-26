@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
-import { Button } from "@material-ui/core";
+import RecipeButton from "./RecipeButton";
+
 
 export default function Recipe() {
   const recipeUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
@@ -14,7 +15,7 @@ export default function Recipe() {
 
   const getRecipeWithShortDescription = useCallback(() => {
     axios.get(recipeUrl).then((response) => {
-      if (response.data.meals[0].strInstructions.length > 580) {
+      if (response.data.meals[0].strInstructions.length > 600) {
         getRecipeWithShortDescription();
       } else {
         setRecipe(response.data.meals[0]);
@@ -44,15 +45,13 @@ export default function Recipe() {
       <h4>Today's meal:</h4>
       <h3>{recipe.strMeal}</h3>
       <img src={recipe.strMealThumb} alt={recipe.strMeal}></img>
+      <RecipeButton 
+        text = {"See recipe"}
+        callback={() => changeState()}
+      ></RecipeButton>
       {getMaxNumOfIngredients().map((ingredient) => (
         <p key={ingredient}>{ingredient}</p>
       ))}
-      <Button
-        aria-label="outlined primary button group"
-        onClick={() => changeState()}
-      >
-        See recipe
-      </Button>
     </div>
   );
 
@@ -61,13 +60,11 @@ export default function Recipe() {
       <h4>Step by step</h4>
       <h3>{recipe.strMeal}</h3>
       <img src={recipe.strMealThumb} alt={recipe.strMeal}></img>
-      <p className="description">{recipe.strInstructions}</p>
-      <Button
-        aria-label="outlined primary button group"
-        onClick={() => changeState()}
-      >
-        Back
-      </Button>
+      <RecipeButton 
+        text = {"See ingredients"}
+        callback={() => changeState()}
+      ></RecipeButton>
+      <p id="recipe-description">{recipe.strInstructions}</p>
     </div>
   );
 
