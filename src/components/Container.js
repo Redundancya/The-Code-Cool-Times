@@ -34,14 +34,7 @@ export default function Container() {
         </div>
         <div className="Grid-item Header-top Header-logo FlexColumn">
           <div className="logoSubtitle">
-            Your one-stop shop of daily news for your morning coffee
-          </div>
-          <h1 className="logo">The Code Cool Times</h1>
-        </div>
-        <div className="Grid-item Header-top Header-weather"></div>
-        <div className="Grid-item Header-top Header-logo FlexColumn">
-          <div className="logoSubtitle">
-            Your one-stop shop of daily news for your morning coffee
+            The one-stop shop of daily news for your morning coffee
           </div>
           <h1 className="logo">The Code Cool Times</h1>
         </div>
