@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&display=swap");
 
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital@0;1&display=swap');
+
 @font-face {
   font-family: "Chomsky";
   src: url("./resources/fonts/Chomsky.otf") format("otf"),
