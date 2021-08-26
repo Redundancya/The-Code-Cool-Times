@@ -25,6 +25,8 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     hyphens: manual;
+    background: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text};
   }
 
   h1,
@@ -35,6 +37,7 @@ export const GlobalStyles = createGlobalStyle`
   h6 {
     font-family: "NYTCheltenham-Book", serif;
     margin: 0;
+    color: ${({ theme }) => theme.text};
   }
 
   .logo {
@@ -57,28 +60,31 @@ export const GlobalStyles = createGlobalStyle`
 
   a:link {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.87);
+    color: ${({ theme }) => theme.text};
   }
 
   a:visited {
     text-decoration: none;
+    ${({ theme }) => theme.text}
   }
 
   a:hover {
     text-decoration: none;
+    ${({ theme }) => theme.text}
   }
 
   a:active {
     text-decoration: none;
+    ${({ theme }) => theme.text}
   }
 
   .link {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.87);
+    color: ${({ theme }) => theme.text};
   }
 
   a:visited {
-    color: initial;
+    color: ${({ theme }) => theme.text};
   }
 
   .Grid-item {
@@ -93,7 +99,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .Header {
     border-top: 1px solid #ebebeb;
-    border-bottom: 4px double #000;
+    border-bottom: 4px double #ebebeb;
   }
 
   .Header-top {
@@ -206,9 +212,17 @@ export const GlobalStyles = createGlobalStyle`
       "foo foo foo foo foo foo foo foo foo foo foo foo";
   }
 
-  .DarkTheme {
-    background-color: darkslategrey;
-    color: white;
+  .ButtonText {
+    color: ${({ theme }) => theme.text};
   }
 
   `;
+
+export const lightTheme = {
+  body: "white",
+  text: "black",
+};
+export const darkTheme = {
+  body: "#334C4C",
+  text: "white",
+};
