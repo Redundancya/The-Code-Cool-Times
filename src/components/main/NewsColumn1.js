@@ -6,7 +6,7 @@ import SourceButton from "./SourceButton";
 
 export default function NewsColumn1() {
   const context = useContext(NewsContext);
-  const articlesIndex = Math.floor(Math.random() * 16 - 1);
+  const [articlesIndex] = useState(Math.floor(Math.random() * 16 - 1));
 
   if (context.loading) {
     return <div>Loading....</div>;
@@ -35,7 +35,9 @@ export default function NewsColumn1() {
         {context.articles[articlesIndex]?.description ?? "Content loading..."}
       </p>
       <SourceButton
-        source={context.articles[articlesIndex].source.name}
+        source={
+          context?.articles[articlesIndex]?.source?.name ?? "Content loading..."
+        }
         sourceUrl={context.articles[articlesIndex]?.url ?? "Loading..."}
       />
     </div>

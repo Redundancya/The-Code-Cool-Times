@@ -6,8 +6,8 @@ export const NewsContext = createContext();
 const apiBaseUrl =
   "https://newsapi.org/v2/everything?q=everything&pageSize=20&apiKey=";
 
-const apiKey = "d1f3e37a2d654d0dadc45046a0ab9ec7"; // Roky's
-// const ApiKey = "803b1f20229542109d3b21b58d162064"; // Tusi's
+// const apiKey = "d1f3e37a2d654d0dadc45046a0ab9ec7"; // Roky's
+const apiKey = "803b1f20229542109d3b21b58d162064"; // Tusi's
 
 export const NewsProvider = (props) => {
   const [loading, setLoading] = useState(true);
