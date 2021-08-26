@@ -30,7 +30,9 @@ export default function Recipe() {
   }, [getRecipeWithShortDescription]);
 
   const capitalize = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
+    if(str !== null){
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
   };
 
   const getMaxNumOfIngredients = () => {
