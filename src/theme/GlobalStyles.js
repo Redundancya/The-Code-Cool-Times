@@ -111,7 +111,7 @@ export const GlobalStyles = createGlobalStyle`
     position: relative;
   }
 
-  #container {
+  #weather-container {
   height: 100%;
   width: 100%;
   display: flex;
@@ -119,16 +119,15 @@ export const GlobalStyles = createGlobalStyle`
   left: 40%;
   }
 
-  #leftThing {
+  #weather-left {
     margin-top: 5%;
     width: 15%;
   }
 
-  #content {
+  #weather-right {
     margin-left: 5%;
     margin-top: 8%;
   }
-
 
   .Header-logo {
     grid-area: log;
