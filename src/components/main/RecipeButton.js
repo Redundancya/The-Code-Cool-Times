@@ -7,6 +7,7 @@ export default function RecipeButton(props) {
       onClick={props.callback}
       aria-label="outlined primary button group"
       style={{
+        fontSize:"16px",
         background: "#E8FFCC",
         fontFamily: "EB Garamond, sans-serif",
       }}
