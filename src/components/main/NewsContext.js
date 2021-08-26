@@ -12,11 +12,15 @@ const apiKey = "d1f3e37a2d654d0dadc45046a0ab9ec7"; // Roky's
 export const NewsProvider = (props) => {
   const [loading, setLoading] = useState(true);
 
+  const checkForTags = (article) => {};
+
   const getTopNews = () => {
-    console.log(`${apiBaseUrl}${apiKey}`);
     axios.get(`${apiBaseUrl}${apiKey}`).then((response) => {
-      setArticles(response.data.articles);
-      setLoading(false);
+      const filteredResponse = response.data.articles.filter(
+          (article) => !article.description.includes("</")
+        );
+        setArticles(filteredResponse);
+        setLoading(false);
     });
   };
 

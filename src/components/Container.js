@@ -38,7 +38,10 @@ export default function Container() {
           context.apiKey
       )
       .then((response) => {
-        context.setArticles(response.data.articles);
+        const filteredResponse = response.data.articles.filter(
+          (article) => !article.description.includes("</")
+        );
+        context.setArticles(filteredResponse);
         context.setLoading(false);
       });
   };
