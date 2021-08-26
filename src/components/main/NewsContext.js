@@ -11,34 +11,30 @@ const apiKeys = [
 ];
 const apiKey = apiKeys[3];
 
-export const NewsProvider = (props) => {
+export const NewsProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
   const [newsTheme, setNewsTheme] = useState("everything");
 
   useEffect(() => {
-    setLoading(true);
     getTopNewsForTheme(newsTheme);
-    return () => {
-      setArticles([]);
-    };
   }, [newsTheme]);
 
-  const getTopNewsForTheme = async (newsTheme) => {
-    try {
-      const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=${newsTheme}&apiKey=${apiKey}`
-      );
-      const responsesWithNoTag = response.data.articles.filter(
-        (article) => !article.description.includes("</")
-      );
-      setArticles(responsesWithNoTag);
-      setLoading(false);
-    } catch (error) {
-      console.log(Object.keys(error), error.message);
-    }
+  const changeNewsTheme = (newTheme) => {
+    setLoading(true);
+    getTopNewsForTheme(newTheme);
   };
 
+  const getTopNewsForTheme = async (newsTheme) => {
+    const response = await axios.get(
+      "https://newsapi.org/v2/everything?q=" + newsTheme + "&apiKey=" + apiKey
+    );
+    const responsesWithNoTag = response.data.articles.filter(
+      (article) => !article.description.includes("</")
+    );
+    setArticles(responsesWithNoTag);
+    setLoading(false);
+  };
   return (
     <NewsContext.Provider
       value={{
@@ -48,6 +44,7 @@ export const NewsProvider = (props) => {
         setLoading: setLoading,
         apiKey: apiKey,
         setNewsTheme: setNewsTheme,
+        changeNewsTheme: changeNewsTheme,
       }}
     >
       {children}
