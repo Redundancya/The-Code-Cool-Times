@@ -8,6 +8,7 @@ export default function Recipe() {
 
   const [recipe, setRecipe] = useState([]);
   const [state, setState] = useState("front");
+  const [loading, setLoading] = useState(true);
 
   const changeState = () => {
     setState(state === "front" ? "back" : "front");
@@ -18,6 +19,7 @@ export default function Recipe() {
       if (response.data.meals[0].strInstructions.length > 600) {
         getRecipeWithShortDescription();
       } else {
+        setLoading(false);
         setRecipe(response.data.meals[0]);
       }
     });
@@ -68,5 +70,5 @@ export default function Recipe() {
     </div>
   );
 
-  return state === "front" ? recipeFront : recipeBack;
+  return loading === true ? "Loading..." : (state === "front" ? recipeFront : recipeBack);
 }
