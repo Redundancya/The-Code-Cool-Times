@@ -27,7 +27,10 @@ export const NewsProvider = ({ children }) => {
 
   const getTopNewsForTheme = async (newsTheme) => {
     const response = await axios.get(
-      "https://newsapi.org/v2/everything?q=" + newsTheme + "&apiKey=" + apiKey
+      "https://newsapi.org/v2/everything?q=" +
+        newsTheme +
+        "&from=2021-08-27&to=2021-08-27&apiKey=" +
+        apiKey
     );
     const responsesWithNoTag = response.data.articles.filter(
       (article) => !article.description.includes("</")
