@@ -48,35 +48,35 @@ export default function Container() {
         <div className="Grid-item Header Header-column-2">
           <Button
             className="CategorySelector"
-            onClick={() => context.setNewsTheme("business")}
+            onClick={() => context.changeNewsTheme("business")}
             size="small"
           >
             Business
           </Button>
           <Button
             className="CategorySelector"
-            onClick={() => context.setNewsTheme("entertainment")}
+            onClick={() => context.changeNewsTheme("entertainment")}
             size="small"
           >
             Entertainment
           </Button>
           <Button
             className="CategorySelector"
-            onClick={() => context.setNewsTheme("health")}
+            onClick={() => context.changeNewsTheme("health")}
             size="small"
           >
             Health
           </Button>
           <Button
             className="CategorySelector"
-            onClick={() => context.setNewsTheme("sciences")}
+            onClick={() => context.changeNewsTheme("sciences")}
             size="small"
           >
             Sciences
           </Button>
           <Button
             className="CategorySelector"
-            onClick={() => context.setNewsTheme("technology")}
+            onClick={() => context.changeNewsTheme("technology")}
             size="small"
           >
             Technology
