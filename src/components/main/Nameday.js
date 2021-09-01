@@ -16,6 +16,7 @@ export const Nameday = () => {
     }
     performSignIn();
   }, []);
+
   if (nameday === "") {
     return <div> </div>;
   }
