@@ -6,6 +6,8 @@ import AuthorButton from "./AuthorButton";
 import SourceButton from "./SourceButton";
 
 export const MainNews = () => {
+  const altImage = require("../../resources/images/placeholder.png");
+
   const context = useContext(NewsContext);
   const [articlesIndex, setArticlesIndex] = useState(0);
 
@@ -68,8 +70,8 @@ export const MainNews = () => {
       </ButtonGroup>
 
       <img
-        src={`${context.articles[articlesIndex].urlToImage}`}
-        alt="dsf"
+        src={context.articles[articlesIndex]?.urlToImage ?? altImage.default}
+        alt=""
         style={{
           width: "100%",
           height: "45vh",
@@ -79,27 +81,21 @@ export const MainNews = () => {
       ></img>
 
       <AuthorButton
-        author={
-          context.articles[articlesIndex].author
-            ? context.articles[articlesIndex].author
-            : "No author"
-        }
+        author={context.articles[articlesIndex]?.author ?? "No author"}
       />
       <SourceButton
         source={context.articles[articlesIndex].source.name}
-        sourceUrl={context.articles[articlesIndex]?.url ?? "Loading..."}
+        sourceUrl={context.articles[articlesIndex]?.url ?? "No data"}
       />
       <a
         className="link"
-        href={context.articles[articlesIndex]?.url ?? "Loading..."}
+        href={context.articles[articlesIndex]?.url ?? "No data"}
         target="_blank"
         rel="noreferrer"
       >
-        <h2>{context.articles[articlesIndex]?.title ?? "Title loading..."}</h2>
+        <h2>{context.articles[articlesIndex]?.title ?? "No title"}</h2>
       </a>
-      <p>
-        {context.articles[articlesIndex]?.description ?? "Content loading..."}
-      </p>
+      <p>{context.articles[articlesIndex]?.description ?? "No content"}</p>
     </div>
   );
 };
