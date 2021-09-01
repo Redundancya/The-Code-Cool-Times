@@ -11,6 +11,7 @@ import { ThemeProvider } from "styled-components";
 import Weather from "./header/Weather";
 import { GlobalStyles } from "../theme/GlobalStyles";
 import NewsButton from "./main/NewsButton";
+import NewsSearch from "./main/NewsSearch";
 
 const options = {
   weekday: "long",
@@ -49,6 +50,7 @@ export default function Container() {
           <NewsButton newsTheme="health"></NewsButton>
           <NewsButton newsTheme="sciences"></NewsButton>
           <NewsButton newsTheme="technology"></NewsButton>
+          <NewsSearch />
         </div>
         <div className="Grid-item Header Header-column-3">
           <Nameday />
