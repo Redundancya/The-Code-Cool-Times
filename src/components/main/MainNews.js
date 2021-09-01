@@ -84,7 +84,7 @@ export const MainNews = () => {
         author={context.articles[articlesIndex]?.author ?? "No author"}
       />
       <SourceButton
-        source={context.articles[articlesIndex].source.name}
+        source={context.articles[articlesIndex]?.source.name ?? "No source"}
         sourceUrl={context.articles[articlesIndex]?.url ?? "No data"}
       />
       <a
