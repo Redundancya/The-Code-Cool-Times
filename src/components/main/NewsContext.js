@@ -16,8 +16,11 @@ export const NewsProvider = ({ children }) => {
   const [articles, setArticles] = useState([]);
   const [newsTheme, setNewsTheme] = useState("everything");
 
+  const todayDate = new Date().toISOString().slice(0, 10);
+
   useEffect(() => {
     getTopNewsForTheme(newsTheme);
+    console.log("newseffectcontextcalled");
   }, [newsTheme]);
 
   const changeNewsTheme = (newTheme) => {
@@ -29,11 +32,17 @@ export const NewsProvider = ({ children }) => {
     const response = await axios.get(
       "https://newsapi.org/v2/everything?q=" +
         newsTheme +
-        "&from=2021-08-27&to=2021-08-27&apiKey=" +
+        "&from=" +
+        todayDate +
+        "&to=" +
+        todayDate +
+        "&apiKey=" +
         apiKey
     );
     const responsesWithNoTag = response.data.articles.filter(
-      (article) => !article.description.includes("</")
+      (article) =>
+        !article.description.includes("</") ||
+        !article.description.includes('"')
     );
     setArticles(responsesWithNoTag);
     setLoading(false);
