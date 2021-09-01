@@ -1,17 +1,16 @@
-import React, { useContext } from "react";
-import { Button } from "@material-ui/core";
+import React from "react";
 import NewsColumn1 from "./main/NewsColumn1";
 import Recipe from "./main/Recipe";
 import Comics from "./main/Comics";
 import Quotes from "./header/Quotes";
 import ThemeSwitch from "./header/ThemeSwitch";
 import MainNews from "./main/MainNews";
-import { NewsContext } from "./main/NewsContext";
 import { useTheme } from "../theme/ThemeContext";
 import { Nameday } from "./main/Nameday";
 import { ThemeProvider } from "styled-components";
 import Weather from "./header/Weather";
 import { GlobalStyles } from "../theme/GlobalStyles";
+import NewsButton from "./main/NewsButton";
 
 const options = {
   weekday: "long",
@@ -23,7 +22,6 @@ const today = new Date();
 
 export default function Container() {
   const themeDetails = useTheme();
-  const context = useContext(NewsContext);
 
   return (
     <ThemeProvider theme={themeDetails.themeStyles}>
@@ -46,41 +44,11 @@ export default function Container() {
           <h5>{today.toLocaleDateString("en-US", options)}</h5>
         </div>
         <div className="Grid-item Header Header-column-2">
-          <Button
-            className="CategorySelector"
-            onClick={() => context.changeNewsTheme("business")}
-            size="small"
-          >
-            Business
-          </Button>
-          <Button
-            className="CategorySelector"
-            onClick={() => context.changeNewsTheme("entertainment")}
-            size="small"
-          >
-            Entertainment
-          </Button>
-          <Button
-            className="CategorySelector"
-            onClick={() => context.changeNewsTheme("health")}
-            size="small"
-          >
-            Health
-          </Button>
-          <Button
-            className="CategorySelector"
-            onClick={() => context.changeNewsTheme("sciences")}
-            size="small"
-          >
-            Sciences
-          </Button>
-          <Button
-            className="CategorySelector"
-            onClick={() => context.changeNewsTheme("technology")}
-            size="small"
-          >
-            Technology
-          </Button>
+          <NewsButton newsTheme="business"></NewsButton>
+          <NewsButton newsTheme="entertainment"></NewsButton>
+          <NewsButton newsTheme="health"></NewsButton>
+          <NewsButton newsTheme="sciences"></NewsButton>
+          <NewsButton newsTheme="technology"></NewsButton>
         </div>
         <div className="Grid-item Header Header-column-3">
           <Nameday />
