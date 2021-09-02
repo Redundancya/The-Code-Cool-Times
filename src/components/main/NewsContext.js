@@ -20,7 +20,6 @@ export const NewsProvider = ({ children }) => {
 
   useEffect(() => {
     getTopNewsForTheme(newsTheme);
-    console.log("newseffectcontextcalled");
   }, [newsTheme]);
 
   const changeNewsTheme = (newTheme) => {
@@ -36,15 +35,19 @@ export const NewsProvider = ({ children }) => {
         todayDate +
         "&to=" +
         todayDate +
+        "&language=en" +
         "&apiKey=" +
         apiKey
     );
     const responsesWithNoTag = response.data.articles.filter(
-      (article) =>
-        !article.description.includes("</") ||
-        !article.description.includes('"')
+      (article) => !article.description.includes("<")
     );
-    setArticles(responsesWithNoTag);
+    const responseWithNoTagAndLink = response.data.articles.filter(
+      (article) => !article.description.includes("www.")
+    );
+    console.log(responseWithNoTagAndLink);
+    console.log(newsTheme);
+    setArticles(responseWithNoTagAndLink);
     setLoading(false);
   };
   return (

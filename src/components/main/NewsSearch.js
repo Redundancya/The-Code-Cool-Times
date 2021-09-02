@@ -48,7 +48,7 @@ export default function NewsSearch() {
     <form className={classes.root} noValidate autoComplete="off">
       <TextField
         id="outlined-basic"
-        label="Other..."
+        label="Search..."
         variant="outlined"
         size="small"
         value={value}
