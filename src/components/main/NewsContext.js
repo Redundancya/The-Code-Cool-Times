@@ -45,8 +45,6 @@ export const NewsProvider = ({ children }) => {
     const responseWithNoTagAndLink = response.data.articles.filter(
       (article) => !article.description.includes("www.")
     );
-    console.log(responseWithNoTagAndLink);
-    console.log(newsTheme);
     setArticles(responseWithNoTagAndLink);
     setLoading(false);
   };
