@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Weather() {
+  const WEATHER_API_KEY = process.env.REACT_APP_API_KEY_WEATHER;
 
-const currentWeatherURL = "https://api.weatherbit.io/v2.0/current?city=Budapest&key=135cd6338d104bbca1d1c554b96c2085"
+const currentWeatherURL = `https://api.weatherbit.io/v2.0/current?city=Budapest&key=${WEATHER_API_KEY}`
 const iconURL = "https://www.weatherbit.io/static/img/icons/icon_code.png"  
   
 const [temperature, setTemperature] = useState([]);
