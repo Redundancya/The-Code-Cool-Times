@@ -3,13 +3,7 @@ import axios from "axios";
 
 export const NewsContext = createContext();
 
-const apiKeys = [
-  "803b1f20229542109d3b21b58d162064", // Tusi's
-  "d1f3e37a2d654d0dadc45046a0ab9ec7", // Roky's
-  "42bb7b3ce3b34a91aef6e8ff7ae74ec6", // Roky's 2nd
-  "e66d041687414a339b55f798c3fa8b6d", // Marta's
-];
-const apiKey = apiKeys[3];
+const apiKey = process.env.REACT_APP_API_KEY_NEWS_4;
 
 export const NewsProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -42,9 +36,11 @@ export const NewsProvider = ({ children }) => {
     const responsesWithNoTag = response.data.articles.filter(
       (article) => !article.description.includes("<")
     );
-    const responseWithNoTagAndLink = response.data.articles.filter(
+    const responseWithNoTagAndLink = responsesWithNoTag.filter(
       (article) => !article.description.includes("www.")
     );
+    console.log(response.data.articles);
+    console.log(responseWithNoTagAndLink);
     setArticles(responseWithNoTagAndLink);
     setLoading(false);
   };

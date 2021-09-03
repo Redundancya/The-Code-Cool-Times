@@ -51,8 +51,21 @@ export default function NewsSearch() {
         label="Search..."
         variant="outlined"
         size="small"
+        border="1px solid grey"
         value={value}
         onChange={handleChange}
+        inputProps={{
+          style: {
+            fontSize: 10,
+            fontFamily: "'Libre Franklin', sans-serif",
+          },
+        }}
+        InputLabelProps={{
+          style: {
+            fontSize: 10,
+            fontFamily: "'Libre Franklin', sans-serif",
+          },
+        }}
       />
     </form>
   );
