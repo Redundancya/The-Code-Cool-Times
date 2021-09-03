@@ -46,7 +46,6 @@ export default function Container() {
         </div>
         <div className="Grid-item Header Header-column-2">
           <NewsButton newsTheme="business"></NewsButton>
-          <NewsButton newsTheme="entertainment"></NewsButton>
           <NewsButton newsTheme="health"></NewsButton>
           <NewsButton newsTheme="sciences"></NewsButton>
           <NewsButton newsTheme="technology"></NewsButton>
