@@ -136,8 +136,8 @@ export const GlobalStyles = createGlobalStyle`
   height: 100%;
   width: 100%;
   display: flex;
-  position:absolute;
-  left: 40%;
+  justify-content: center;
+  align-items: center;
   }
 
   #weather-left {
