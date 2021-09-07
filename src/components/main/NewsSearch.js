@@ -38,7 +38,7 @@ export default function NewsSearch() {
     return () => {
       document.removeEventListener("keydown", listener);
     };
-  }, [value]);
+  }, [context, value]);
 
   const handleChange = (event) => {
     setValue(event.target.value);

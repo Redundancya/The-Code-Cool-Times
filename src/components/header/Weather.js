@@ -21,7 +21,7 @@ export default function Weather() {
       setIcon(insertIconCode(response.data.data[0].weather.icon));
       setWeatherStatus(response.data.data[0].weather.description);
     });
-  }, []);
+  }, [currentWeatherURL]);
 
   return (
     <div id="weather-container">

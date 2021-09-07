@@ -14,6 +14,7 @@ export const NewsProvider = ({ children }) => {
 
   useEffect(() => {
     getTopNewsForTheme(newsTheme);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newsTheme]);
 
   const changeNewsTheme = (newTheme) => {
