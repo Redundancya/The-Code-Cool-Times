@@ -8,9 +8,27 @@ export default function Recipe() {
   const [recipe, setRecipe] = useState([]);
   const [state, setState] = useState("front");
   const [loading, setLoading] = useState(true);
+  const [uniqueIngredients, setUniqueIngredients] = useState([]);
 
   const changeState = () => {
     setState(state === "front" ? "back" : "front");
+  };
+
+  const capitalize = (str) => {
+    if (str !== null) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+  };
+
+  const getMaxNumOfIngredients = (meal) => {
+    const maxNumber = 10;
+    let ingredients = Object.keys(meal)
+      .filter((item) => item.toString().startsWith("strIngredient"))
+      .filter((key) => meal[key] !== "")
+      .map((key) => capitalize(meal[key]));
+
+    let uniqueIngredients = [...new Set(ingredients)];
+    setUniqueIngredients(uniqueIngredients.slice(0, maxNumber));
   };
 
   const getRecipeWithShortDescription = useCallback(() => {
@@ -18,32 +36,17 @@ export default function Recipe() {
       if (response.data.meals[0].strInstructions.length > 600) {
         getRecipeWithShortDescription();
       } else {
-        setLoading(false);
         setRecipe(response.data.meals[0]);
+        getMaxNumOfIngredients(response.data.meals[0]);
+        setLoading(false);
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     getRecipeWithShortDescription();
   }, [getRecipeWithShortDescription]);
-
-  const capitalize = (str) => {
-    if(str !== null){
-      return str.charAt(0).toUpperCase() + str.slice(1);
-    }
-  };
-
-  const getMaxNumOfIngredients = () => {
-    const maxNumber = 10;
-    let ingredients = Object.keys(recipe)
-      .filter((item) => item.toString().startsWith("strIngredient"))
-      .filter((key) => recipe[key] !== "")
-      .map((key) => capitalize(recipe[key]));
-
-    let uniqueIngredients = [...new Set(ingredients)]
-    return uniqueIngredients.slice(0, maxNumber);
-  };
 
   const recipeFront = (
     <div>
@@ -54,7 +57,7 @@ export default function Recipe() {
         text={"See recipe"}
         callback={() => changeState()}
       ></RecipeButton>
-      {getMaxNumOfIngredients().map((ingredient) => (
+      {uniqueIngredients.map((ingredient) => (
         <p key={ingredient}>{ingredient}</p>
       ))}
     </div>
