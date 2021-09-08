@@ -1,25 +1,16 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
-const quoteApiUrl = "http://quotes.stormconsultancy.co.uk/random.json";
-const maxQuoteLength = 90;
+const quoteApiUrl = "http://localhost:8080/quote/v1/random";
 
 export default function Quotes() {
   const [randomQuote, setRandomQuote] = useState({});
 
-  const getQuoteWithShortLength = useCallback(() => {
+  useEffect(() => {
     axios.get(quoteApiUrl).then((res) => {
-      if (res.data.quote.length > maxQuoteLength) {
-        getQuoteWithShortLength();
-      } else {
-        setRandomQuote(res.data);
-      }
+      setRandomQuote(res.data);
     });
   }, []);
-
-  useEffect(() => {
-    getQuoteWithShortLength();
-  }, [getQuoteWithShortLength]);
 
   return (
     <div className="QuoteContainer">
